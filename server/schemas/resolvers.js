@@ -6,80 +6,75 @@ const { User } = require("../models");
 const resolvers = {
   Query: {
     user: async (parent, { username }) => {
-        return User.findOne({ username }).populate('highscore');
+      return User.findOne({ username }).populate("highscore");
     },
 
-    compare: async (_, { previousGameId }) => {
+    compare: async (_, { game1, game2 }) => {
       try {
-        // Fetch the previous game
-        const previousGameResponse = await axios.post(
+        const response1 = await axios.post(
           "https://api.igdb.com/v4/games",
-          `fields name,total_rating; where id = ${previousGameId};`,
+          `fields name,total_rating; where name = "${game1}"; limit 1;`,
+          {
+            headers: {
+              Accept: "application/json",
+              "Client-ID": `${process.env.CLIENT_ID}`,
+              Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+            },
+          }
+        );
+    
+        const response2 = await axios.post(
+          "https://api.igdb.com/v4/games",
+          `fields name,total_rating; where name = "${game2}"; limit 1;`,
           {
             headers: {
               Accept: "application/json",
               "Client-ID": process.env.CLIENT_ID,
-              Authorization: process.env.ACCESS_TOKEN,
+              Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
             },
           }
         );
-
-        // Fetch a random game
-        const randomGameResponse = await axios.post(
-          "https://api.igdb.com/v4/games",
-          "fields name,total_rating; limit 1; offset random_offset;",
-          {
-            headers: {
-              Accept: "application/json",
-              "Client-ID": "Client ID",
-              Authorization: "Bearer access_token",
-            },
-          }
-        );
-
+    
         return {
-          previousGame: previousGameResponse.data[0].name,
-          previousGameRating: previousGameResponse.data[0].total_rating,
-          randomGame: randomGameResponse.data[0].name,
-          randomGameRating: randomGameResponse.data[0].total_rating,
+          game1: response1.data[0],
+          game2: response2.data[0],
         };
       } catch (error) {
         console.error(error);
       }
     },
   },
+    Mutation: {
+      addUser: async (parent, { username, password }) => {
+        const user = await User.create({ username, password });
+        const token = signToken(user);
+        return { token, user };
+      },
+      login: async (parent, { username, password }) => {
+        const user = await User.findOne({ username });
+        if (!user) {
+          throw new AuthenticationError("Incorrect credentials");
+        }
 
-  Mutation: {
-    addUser: async (parent, { username, password }) => {
-      const user = await User.create({ username, password });
-      const token = signToken(user);
-      return { token, user };
+        const correctPw = await user.isCorrectPassword(password);
+
+        if (!correctPw) {
+          throw new AuthenticationError("Incorrect credentials");
+        }
+
+        const token = signToken(user);
+
+        return { token, user };
+      },
+
+      updateScore: async (parent, { username, highscore }) => {
+        const user = await User.findOneAndUpdate(
+          { username: username },
+          { highscore: highscore },
+          { new: true }
+        );
+        return user;
+      },
     },
-    login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username });
-      if (!user) {
-        throw new AuthenticationError("Incorrect credentials");
-      }
-
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError("Incorrect credentials");
-      }
-
-      const token = signToken(user);
-
-      return { token, user };
-    },
-
-    updateScore: async (parent, { username, highscore }) => {
-      const user = await User.findOneAndUpdate(
-        { username: username },
-        { highscore: highscore },
-        { new: true }
-      );
-      return user;
-    },
-  },
 };
 module.exports = resolvers;
