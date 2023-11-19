@@ -23,6 +23,10 @@ const typeDefs = `
         game1Rating: Int!
         game2Rating: Int!
     }
+    type Auth {
+        token: ID!
+        user: User
+    }
 
     type Query {
         users: [User]
