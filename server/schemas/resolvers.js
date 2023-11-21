@@ -1,5 +1,5 @@
 const axios = require("axios");
-require("dotenv").config();
+require('dotenv').config();
 const { signToken, AuthenticationError } = require("../utils/auth");
 const { User } = require("../models");
 
@@ -9,11 +9,32 @@ const resolvers = {
       return User.findOne({ username }).populate("highscore");
     },
 
+    fetchAllGames: async () => {
+      try {
+        console.log("LOOK AT ME", process.env.CLIENT_ID, process.env.ACCESS_TOKEN);
+        const response = await axios.post(
+          "https://api.igdb.com/v4/games",
+          `fields name,total_rating; where total_rating>0; limit 500;`,
+          {
+            headers: {
+              Accept: "application/json",
+              "Client-ID": `${process.env.CLIENT_ID}`,
+              Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+            },
+          }
+        );
+        return response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    //push json data to frontend
     compare: async (_, { game1, game2 }) => {
       try {
         const response1 = await axios.post(
           "https://api.igdb.com/v4/games",
-          `fields name,total_rating; where name = "${game1}"; limit 1;`,
+          `fields name,total_rating; where id = "${game1}"; limit 1;`,
           {
             headers: {
               Accept: "application/json",
@@ -25,7 +46,7 @@ const resolvers = {
     
         const response2 = await axios.post(
           "https://api.igdb.com/v4/games",
-          `fields name,total_rating; where name = "${game2}"; limit 1;`,
+          `fields name,total_rating; where id = "${game2}"; limit 1;`,
           {
             headers: {
               Accept: "application/json",
