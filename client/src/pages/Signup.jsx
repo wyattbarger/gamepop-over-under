@@ -46,6 +46,12 @@ const UsernameInput = styled.input`
   color: #008f11;
   border: 1px solid #1a1a1a;
   border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  &:focus {
+    border-color: #008f11;
+    outline: none; 
+  }
 `;
 
 const PasswordLabel = styled.label`
@@ -59,6 +65,12 @@ const PasswordInput = styled.input`
   color: #008f11;
   border: 1px solid #1a1a1a;
   border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  &:focus {
+    border-color: #008f11; 
+    outline: none;
+  }
 `;
 
 // Add the function which builds out our Signup page with styled components.
