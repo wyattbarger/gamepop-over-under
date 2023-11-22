@@ -117,7 +117,7 @@ function Signup() {
 
     const signupFormSubmit = async (event) => { // Add the function to handle the form submission when the 'Join button is clicked.
         event.preventDefault();
-        console.log('✅ signupFormSubmit triggered.'); // * Remove when mvp is complete. *
+        console.log('✅ signupFormSubmit triggered.'); // * Remove when mvp is complete. (Input fields also will not clear as intended until addUser mutation is linked.) *
         try {
             const response = await addUser({variables : {username, password}}); // Add a response variable that will await the addUser mutation, and pass in the username and password variables as defined in server/schemas/resolvers.js.
             setUsername('');
