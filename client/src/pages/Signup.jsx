@@ -16,7 +16,6 @@ const SignupCard = styled.div`
   width: 90%;
   max-width: 1000px;
   border: 1px solid #008f11;
-  border-radius: 10px;
   margin: 10px;
   padding: 20px;
 `;
@@ -26,34 +25,40 @@ const CardTitle = styled.h1`
   font-size: 8rem;
   white-space: nowrap;
   padding: 0 20px;
+  text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
 `;
 
 const SignupForm = styled.form`
+  color: #008f11;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const UsernameLabel = styled.label`
-  color: #008f11;
   font-size: 16px;
   white-space: nowrap;
 `;
 
 const UsernameInput = styled.input`
-  color: #008f11;
+  background-color: #0D0D0D;
   font-size: 20px;
+  color: #008f11;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
 `;
 
 const PasswordLabel = styled.label`
-  color: #008f11;
   font-size: 16px;
   white-space: nowrap;
 `;
 
 const PasswordInput = styled.input`
-  color: #008f11;
+  background-color: #0D0D0D;
   font-size: 20px;
+  color: #008f11;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
 `;
 
 // Add the function which builds out our Signup page with styled components.
