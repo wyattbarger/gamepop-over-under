@@ -1,5 +1,5 @@
 // Add the necessary technologies and components for the Signup page.
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 // Add the styled components for the Signup page.
@@ -91,8 +91,8 @@ const SignupButton = styled.button`
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #005f0c;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   transition: all 0.1s ease-in-out;
 
   :active {
@@ -104,16 +104,27 @@ const SignupButton = styled.button`
 
 // Add the function which builds out our Signup page with styled components.
 function Signup() {
+  const [username, setUsername] = useState(''); // Add the state to update the value of the username.
+  const [password, setPassword] = useState(''); // Add the state to update the value of the password.
+
+  const onUsernameInputChange = (event) => { // Add the function to update the value of the username state.
+      setUsername(event.target.value);
+    };
+
+    const onPasswordInputChange = (event) => { // Add the function to update the value of the password state.
+        setPassword(event.target.value);
+    };
+
   return (
     <Container>
       <SignupCard>
         <CardTitle>Join Game Pop</CardTitle>
         <SignupForm>
           <UsernameLabel htmlFor="username">Choose a Username</UsernameLabel>
-          <UsernameInput type="text" id="username" />
+          <UsernameInput type="text" id="username" value={username} onChange={onUsernameInputChange}/>
           <PasswordLabel htmlFor="password">Enter a Password</PasswordLabel>
-          <PasswordInput type="password" id="password" />
-          <SignupButton type="submit">Sign Up</SignupButton>
+          <PasswordInput type="password" id="password" value={password} onChange={onPasswordInputChange}/>
+          <SignupButton type="submit">Join</SignupButton>
         </SignupForm>
       </SignupCard>
     </Container>
