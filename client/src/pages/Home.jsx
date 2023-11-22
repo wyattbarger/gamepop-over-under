@@ -4,8 +4,8 @@ import { FETCH_ALL_GAMES} from '../utils/queries';
 const Home = () => {
     console.log('howdy pardner');
     const { loading, data } = useQuery(FETCH_ALL_GAMES);
-    const games = data?.games || [];
-    console.log(data);
+    const games = data?.fetchAllGames || [];
+    console.log(data.fetchAllGames[0]);
 
     return (
         <div>
