@@ -11,9 +11,13 @@ const client = new ApolloClient({
 });
 
 
-function App() {
-  const [count, setCount] = useState(0)
+// page import
+import StartMenu from './pages/StartMenu';
+import PlayGame from './pages/PlayGame';
+import Login from './pages/Login';
+import EndMenu from './pages/EndMenu';
 
+function App() {
   return (
     <ApolloProvider client={client}>
       <Home />

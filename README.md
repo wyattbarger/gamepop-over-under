@@ -10,7 +10,7 @@
 - Be interactive (i.e. accept and respond to user input).
 - Include authentication (JWT). 
 - Protect sensitive API key information on the server.
-- Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, and so on).
+- Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conven tions, indentation, high-quality comments, and so on).
 - Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 ## CSS Styling
