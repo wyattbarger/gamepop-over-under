@@ -8,7 +8,8 @@ const typeDefs = `
 
     type Game {
         _id: ID!
-        rating: Int!
+        name: String!
+        total_rating: Float!
         image: String!
         age_rating: String!
         cover: String!
@@ -23,10 +24,15 @@ const typeDefs = `
         game1Rating: Int!
         game2Rating: Int!
     }
+    type Auth {
+        token: ID!
+        user: User
+    }
 
     type Query {
         users: [User]
         user(username: String!): User
+        fetchAllGames: [Game]
         games: [Game]
         game(name: String!): Game
         compare(game1: String!, game2: String!): Compare

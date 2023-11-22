@@ -1,6 +1,15 @@
-// importing BrowserRouter
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './pages/home.jsx';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache()
+});
+
 
 // page import
 import StartMenu from './pages/StartMenu';
@@ -10,17 +19,10 @@ import EndMenu from './pages/EndMenu';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />}/> 
-        <Route path="/" element={<StartMenu />}/>
-        <Route path="/game" element={<PlayGame />}/>
-        <Route path="/endmenu" element={<EndMenu />}/>
-        {/* maybe another route for a leaderboard? could maybe see about using state for leaderboard/end menu */}
-        
-      </Routes>
-    </Router>
-  );
+    <ApolloProvider client={client}>
+      <Home />
+      </ApolloProvider>
+  )
 }
 
 export default App
