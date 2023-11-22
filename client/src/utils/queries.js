@@ -5,6 +5,10 @@ query Query {
     fetchAllGames {
       name
       total_rating
+      url
+      cover {
+        image_id
+      }
     }
   }
     `;
