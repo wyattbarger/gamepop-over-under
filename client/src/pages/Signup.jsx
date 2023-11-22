@@ -22,7 +22,7 @@ const SignupCard = styled.div`
 
 const CardTitle = styled.h1`
   color: #008f11;
-  font-size: 8rem;
+  font-size: 4rem;
   white-space: nowrap;
   padding: 0 20px;
   text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
@@ -107,23 +107,35 @@ function Signup() {
   const [username, setUsername] = useState(''); // Add the state to update the value of the username.
   const [password, setPassword] = useState(''); // Add the state to update the value of the password.
 
-  const onUsernameInputChange = (event) => { // Add the function to update the value of the username state.
+  const usernameInputChange = (event) => { // Add the function to update the value of the username state.
       setUsername(event.target.value);
     };
 
-    const onPasswordInputChange = (event) => { // Add the function to update the value of the password state.
-        setPassword(event.target.value);
+  const passwordInputChange = (event) => { // Add the function to update the value of the password state.
+      setPassword(event.target.value);
+    };
+
+    const signupFormSubmit = async (event) => { // Add the function to handle the form submission when the 'Join button is clicked.
+        event.preventDefault();
+        console.log('✅ signupFormSubmit triggered.'); // * Remove when mvp is complete. *
+        try {
+            const response = await addUser({variables : {username, password}}); // Add a response variable that will await the addUser mutation, and pass in the username and password variables as defined in server/schemas/resolvers.js.
+            setUsername('');
+            setPassword('');
+        } catch (error) {
+            console.log(error);
+        }
     };
 
   return (
     <Container>
       <SignupCard>
         <CardTitle>Join Game Pop</CardTitle>
-        <SignupForm>
+        <SignupForm onSubmit={signupFormSubmit}>
           <UsernameLabel htmlFor="username">Choose a Username</UsernameLabel>
-          <UsernameInput type="text" id="username" value={username} onChange={onUsernameInputChange}/>
+          <UsernameInput type="text" id="username" value={username} onChange={usernameInputChange}/>
           <PasswordLabel htmlFor="password">Enter a Password</PasswordLabel>
-          <PasswordInput type="password" id="password" value={password} onChange={onPasswordInputChange}/>
+          <PasswordInput type="password" id="password" value={password} onChange={passwordInputChange}/>
           <SignupButton type="submit">Join</SignupButton>
         </SignupForm>
       </SignupCard>
