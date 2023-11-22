@@ -5,7 +5,7 @@ import { Button, Typography } from '@mui/material';
 function StartMenu() {
   return (
     <div>
-      <Typography> start game</Typography>
+      <Typography> GAME POP</Typography>
       <NavLink to="/game">
         <Button>
           Start Game
