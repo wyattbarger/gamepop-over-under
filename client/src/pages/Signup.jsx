@@ -36,40 +36,69 @@ const SignupForm = styled.form`
 `;
 
 const UsernameLabel = styled.label`
+  padding: 10px;
   font-size: 16px;
   white-space: nowrap;
 `;
 
 const UsernameInput = styled.input`
-  background-color: #0D0D0D;
+  background-color: #0d0d0d;
   font-size: 20px;
   color: #008f11;
   border: 1px solid #1a1a1a;
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px;
+  transition: background-color 0.3s ease-in-out; 
+
   &:focus {
+    background-color: #2D2D2D;
     border-color: #008f11;
-    outline: none; 
+    outline: none;
   }
 `;
 
 const PasswordLabel = styled.label`
+  padding: 10px 0;
   font-size: 16px;
   white-space: nowrap;
 `;
 
 const PasswordInput = styled.input`
-  background-color: #0D0D0D;
+  background-color: #0d0d0d;
   font-size: 20px;
   color: #008f11;
   border: 1px solid #1a1a1a;
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px;
+  transition: background-color 0.3s ease-in-out; 
+
   &:focus {
-    border-color: #008f11; 
+    background-color: #2D2D2D;
+    border-color: #008f11;
     outline: none;
+  }
+`;
+
+const SignupButton = styled.button`
+  background-color: #008f11;
+  color: #f5f5f5;
+  text-align: center;
+  font-size: 20px;
+  margin: 20px 10px;
+  padding: 20px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #005f0c;
+  width: 100px;
+  height: 100px;
+  transition: all 0.1s ease-in-out;
+
+  :active {
+    background-color: #005f0c;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+    transform: scale(0.95);
   }
 `;
 
@@ -84,6 +113,7 @@ function Signup() {
           <UsernameInput type="text" id="username" />
           <PasswordLabel htmlFor="password">Enter a Password</PasswordLabel>
           <PasswordInput type="password" id="password" />
+          <SignupButton type="submit">Sign Up</SignupButton>
         </SignupForm>
       </SignupCard>
     </Container>
