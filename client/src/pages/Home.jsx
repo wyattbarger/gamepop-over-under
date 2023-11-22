@@ -5,7 +5,7 @@ const Home = () => {
     console.log('howdy pardner');
     const { loading, data } = useQuery(FETCH_ALL_GAMES);
     const games = data?.fetchAllGames || [];
-    console.log(data.fetchAllGames[0]);
+    console.log(data);
 
     return (
         <div>
