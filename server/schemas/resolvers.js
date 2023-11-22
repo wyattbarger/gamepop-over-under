@@ -14,7 +14,7 @@ const resolvers = {
         console.log("LOOK AT ME", process.env.CLIENT_ID, process.env.ACCESS_TOKEN);
         const response = await axios.post(
           "https://api.igdb.com/v4/games",
-          `fields name,total_rating, total_rating_count,url, cover.*;
+          `fields name,total_rating, total_rating_count, url, cover.*;
             where total_rating >0 & total_rating_count >250;
             limit 500;`,
           {
@@ -25,6 +25,7 @@ const resolvers = {
             },
           }
         );
+        console.log(response);
         return response.data;
       } catch (error) {
         console.error(error);
