@@ -6,7 +6,7 @@ function StartMenu() {
   return (
     <div>
       <Typography> start game</Typography>
-      <NavLink to="/game">
+      <NavLink to="/play">
         <Button>
           Start Game
         </Button>
