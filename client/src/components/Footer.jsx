@@ -1,16 +1,26 @@
-//Add necessary technologies for the Footer component.
+// Add necessary technologies for the Footer component.
 import React from 'react'; 
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+
+// Add the makeStyles and useStyles hook to add styling to our custom footer component.
+const useStyles = makeStyles({
+    footerSection: {
+        backgroundColor: '#0D0D0D',
+        padding: '10px'
+    }
+});
 
 // Add the Footer component.
 function Footer() {
+    const classes = useStyles();
     return (
-        <section>
+        <footer className={classes.footerSection}>
             <Container>
 
             </Container>
-        </section>
+        </footer>
     )
 };
+export default Footer;
