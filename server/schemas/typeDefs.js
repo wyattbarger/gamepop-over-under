@@ -6,13 +6,17 @@ const typeDefs = `
         highscore: Int
     }
 
+    type Cover {
+        image_id: String!
+    }
+
     type Game {
         _id: ID!
         name: String!
         total_rating: Float!
         image: String!
         age_rating: String!
-        cover: String!
+        cover: Cover!
         url: String!
         videos: [String]!
     }

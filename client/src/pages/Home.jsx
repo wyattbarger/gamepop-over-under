@@ -68,7 +68,9 @@ const Home = () => {
             <div>
                 {games.map((game) => (
                 <div key={game._id}>
-                    <p>{game.name}</p>
+                    <img src={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`} alt={game.name} />
+                    <p>{game.cover.image_id}</p>
+                    <a href={game.url}><p>{game.name}</p></a>
                     <p>{game.total_rating}</p>
                 </div>
                 ))}
