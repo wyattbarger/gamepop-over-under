@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Card, CardContent, Typography, Grid, Button } from '@mui/material';
+import GameCard from '../components/GameCard'
+import { Container } from '@mui/material'
 
 function PlayGame() {
+
   return (
-    <div></div>
+    <Container>
+      <Grid container>
+        
+      </Grid>
+    </Container>
+     
   );
 }
 
