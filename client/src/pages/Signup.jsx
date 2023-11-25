@@ -1,6 +1,7 @@
 // Add the necessary technologies and components for the Signup page.
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import Footer from "../components/Footer";
 
 // Add the styled components for the Signup page.
 const Container = styled.div`
@@ -49,10 +50,10 @@ const UsernameInput = styled.input`
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px;
-  transition: background-color 0.3s ease-in-out; 
+  transition: background-color 0.3s ease-in-out;
 
   &:focus {
-    background-color: #2D2D2D;
+    background-color: #2d2d2d;
     border-color: #008f11;
     outline: none;
   }
@@ -72,10 +73,10 @@ const PasswordInput = styled.input`
   border-radius: 5px;
   box-sizing: border-box;
   padding: 5px;
-  transition: background-color 0.3s ease-in-out; 
+  transition: background-color 0.3s ease-in-out;
 
   &:focus {
-    background-color: #2D2D2D;
+    background-color: #2d2d2d;
     border-color: #008f11;
     outline: none;
   }
@@ -104,28 +105,31 @@ const SignupButton = styled.button`
 
 // Add the function which builds out our Signup page with styled components.
 function Signup() {
-  const [username, setUsername] = useState(''); // Add the state to update the value of the username.
-  const [password, setPassword] = useState(''); // Add the state to update the value of the password.
+  const [username, setUsername] = useState(""); // Add the state to update the value of the username.
+  const [password, setPassword] = useState(""); // Add the state to update the value of the password.
 
-  const usernameInputChange = (event) => { // Add the function to update the value of the username state.
-      setUsername(event.target.value);
-    };
+  const usernameInputChange = (event) => {
+    // Add the function to update the value of the username state.
+    setUsername(event.target.value);
+  };
 
-  const passwordInputChange = (event) => { // Add the function to update the value of the password state.
-      setPassword(event.target.value);
-    };
+  const passwordInputChange = (event) => {
+    // Add the function to update the value of the password state.
+    setPassword(event.target.value);
+  };
 
-    const signupFormSubmit = async (event) => { // Add the function to handle the form submission when the 'Join button is clicked.
-        event.preventDefault();
-        console.log('✅ signupFormSubmit triggered.'); // * Remove when mvp is complete. (Input fields also will not clear as intended until addUser mutation is linked.) *
-        try {
-            const response = await addUser({variables : {username, password}}); // Add a response variable that will await the addUser mutation, and pass in the username and password variables as defined in server/schemas/resolvers.js.
-            setUsername('');
-            setPassword('');
-        } catch (error) {
-            console.log(error);
-        }
-    };
+  const signupFormSubmit = async (event) => {
+    // Add the function to handle the form submission when the 'Join button is clicked.
+    event.preventDefault();
+    console.log("✅ signupFormSubmit triggered."); // * Remove when mvp is complete. (Input fields also will not clear as intended until addUser mutation is linked.) *
+    try {
+      const response = await addUser({ variables: { username, password } }); // Add a response variable that will await the addUser mutation, and pass in the username and password variables as defined in server/schemas/resolvers.js.
+      setUsername("");
+      setPassword("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Container>
@@ -133,12 +137,23 @@ function Signup() {
         <CardTitle>Join Game Pop</CardTitle>
         <SignupForm onSubmit={signupFormSubmit}>
           <UsernameLabel htmlFor="username">Choose a Username</UsernameLabel>
-          <UsernameInput type="text" id="username" value={username} onChange={usernameInputChange}/>
+          <UsernameInput
+            type="text"
+            id="username"
+            value={username}
+            onChange={usernameInputChange}
+          />
           <PasswordLabel htmlFor="password">Enter a Password</PasswordLabel>
-          <PasswordInput type="password" id="password" value={password} onChange={passwordInputChange}/>
+          <PasswordInput
+            type="password"
+            id="password"
+            value={password}
+            onChange={passwordInputChange}
+          />
           <SignupButton type="submit">Join</SignupButton>
         </SignupForm>
       </SignupCard>
+      <Footer />
     </Container>
   );
 }
