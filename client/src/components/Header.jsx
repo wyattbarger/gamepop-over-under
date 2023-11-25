@@ -17,7 +17,6 @@ const HeaderContainer = styled.header`
   left: 0;
   padding: 10px 10px 10px 10px;
   margin-bottom: 20px;
-  border-bottom: 1px solid #008f11;
 `;
 
 const HeroContainer = styled.div`
@@ -37,28 +36,16 @@ const Navbar = styled.nav`
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
-  padding: 10px 40px 10px 10px;
+  padding: 5px 5px 5px 5px;
+  border-top: 1px solid #008f11;
+  border-bottom: 1px solid #008f11;
+  border-left: 1px solid #008f11;
 `;
 
 const NavbarLink = styled(Link)`
   text-decoration: none;
   color: #008f11;
   padding: 10px 40px 10px 10px;
-
-  &:after {
-    content: "";
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: #008f11;
-    transition: width 0.3s ease-in-out;
-  }
-
-  &:hover:after {
-    width: auto;
-  }
 `;
 
 export default function Header() {
