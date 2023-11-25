@@ -15,7 +15,7 @@ const FooterContainer = styled.footer`
   bottom: 0;
   left: 0;
   width: 100%;
-    padding: 10px 40px 10px 0; 
+    padding: 10px 40px 10px 10px; 
   background-color: #0d0d0d;
   transition: border-top-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
 
@@ -42,11 +42,12 @@ const Copyright = styled.p`
 const GithubIcon = styled.img`
   width: 24px;
   height: 24px;
-  transition: filter 0.7s ease;
   margin-right: 10px;
+  transition: filter 1.7s ease;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%);
 
   &:hover {
-    filter: drop-shadow(0 0 3px #005f0c);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #008f11);
   }
 `;
 
@@ -54,10 +55,11 @@ const GithubIcon = styled.img`
 const IssuesIcon = styled.img`
   width: 24px;
   height: 24px;
-  transition: filter 0.7s ease;
+  transition: filter 1.7s ease;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%);
 
   &:hover {
-    filter: drop-shadow(0 0 3px #005f0c);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #FF073A);
   }
 `;
 
@@ -77,9 +79,14 @@ export default function Footer() {
         licensed under the MIT License. Designed and developed in Novemeber
         2023.
       </Copyright>
-      <IconContainer>
-        <GithubIcon src={githubIcon} />
-        <IssuesIcon src={issuesIcon} />
+      <IconContainer> 
+        {/* Add target="_blank" to open the links in a new tab and rel="noopener noreferrer" to prevent the new page from accessing the previous page's window object for security reasons. */}
+        <a href="https://github.com/wyattbarger/gamepop-over-under" target="_blank" rel="noopener noreferrer">
+            <GithubIcon src={githubIcon} title="View the repo"/>
+        </a>
+        <a href="https://github.com/wyattbarger/gamepop-over-under/issues" target="_blank" rel="noopener noreferrer">
+            <IssuesIcon src={issuesIcon} title="Add an issue"/>
+        </a>
       </IconContainer>
     </FooterContainer>
   );
