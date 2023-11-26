@@ -71,10 +71,10 @@ export default function Header() {
           Play
         </NavbarLink>
         <NavbarLink to="/login" active={currentPath === "/login"}>
-          Login
+          Log In
         </NavbarLink>
         <NavbarLink to="/signup" active={currentPath === "/signup"}>
-          Signup
+          Sign Up
         </NavbarLink>
       </Navbar>
     </HeaderContainer>
