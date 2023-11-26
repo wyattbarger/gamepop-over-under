@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import headerLogo from "../assets/mvp-icon-png.png";
 // * Need to add the auth information that will need to be created for the front end to work with the back end, which should be created in the utils directory to decode the JWT token *.
 
 // Add the styled components for the Header component.
@@ -10,26 +11,25 @@ const HeaderContainer = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 75px;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   padding: 10px 10px 10px 10px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 `;
 
 const HeroContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding-left: 10px;
+  padding: 10px 10px 10px 10px;
 `;
-
-const HeaderLogo = styled.img``;
-
 const HeaderTitle = styled.h1`
+  font-size: 50.5px;
   color: #008f11;
+  text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
 `;
 
 const Navbar = styled.nav`
@@ -52,7 +52,6 @@ export default function Header() {
   return (
     <HeaderContainer>
       <HeroContainer>
-        <HeaderLogo src="" alt="logo" />
         <HeaderTitle>Game Pop</HeaderTitle>
       </HeroContainer>
       <Navbar>
