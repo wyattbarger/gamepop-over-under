@@ -131,9 +131,11 @@ function Login() {
     }
   };
   return (
-    <div>
-      <button>Log In</button>
-    </div>
+    <Container>
+      <Header />
+        <button>Log In</button>
+      <Footer />
+    </Container>
   );
 }
 
