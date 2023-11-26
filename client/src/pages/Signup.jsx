@@ -145,7 +145,7 @@ function Signup() {
             value={username}
             onChange={usernameInputChange}
           />
-          <PasswordLabel htmlFor="password">Enter a Password</PasswordLabel>
+          <PasswordLabel htmlFor="password">Choose a Password</PasswordLabel>
           <PasswordInput
             type="password"
             id="password"
