@@ -133,7 +133,26 @@ function Login() {
   return (
     <Container>
       <Header />
-        <button>Log In</button>
+      <LoginCard>
+        <CardTitle>Log In to Game Pop</CardTitle>
+        <LoginForm onSubmit={loginFormSubmit}>
+          <UsernameLabel htmlFor="username">Enter your Username</UsernameLabel>
+          <UsernameInput
+            type="text"
+            id="username"
+            value={username}
+            onChange={usernameInputChange}
+          />
+          <PasswordLabel htmlFor="password">Enter your Password</PasswordLabel>
+          <PasswordInput
+            type="password"
+            id="password"
+            value={password}
+            onChange={passwordInputChange}
+          />
+          <LoginButton type="submit">Join</LoginButton>
+        </LoginForm>
+      </LoginCard>
       <Footer />
     </Container>
   );
