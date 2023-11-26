@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Footer from "../components/Footer";
+import Header from '../components/Header';
 
 // Add the styled components for the Signup page.
 const Container = styled.div`
@@ -133,6 +134,7 @@ function Signup() {
 
   return (
     <Container>
+      <Header />
       <SignupCard>
         <CardTitle>Join Game Pop</CardTitle>
         <SignupForm onSubmit={signupFormSubmit}>
