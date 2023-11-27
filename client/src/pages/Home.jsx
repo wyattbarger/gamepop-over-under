@@ -1,5 +1,4 @@
-import { useQuery } from "@apollo/client";
-import { FETCH_ALL_GAMES } from "../utils/queries";
+import { Link } from 'react-router-dom';
 import styled from "@emotion/styled";
 
 // const Container = styled.div
@@ -45,9 +44,7 @@ const StartButton = styled.button`
 
 const Home = () => {
   console.log("howdy pardner");
-  const { loading, data } = useQuery(FETCH_ALL_GAMES);
-  const games = data?.fetchAllGames || [];
-  console.log(data);
+
 
   const StartGame = () => {
     // Add logic for starting the game
@@ -58,27 +55,8 @@ const Home = () => {
     // <Container>
     <InsideContainer>
       <Title>Game Pop</Title>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <div>
-          {games.map((game, index) => {
-            // console.log(game);
-            return <div key={index}>
-              <img
-                src={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`}
-                alt={game.name}
-              />
-              <p>{game.cover.image_id}</p>
-              <a href={game.url}>
-                <p>{game.name}</p>
-              </a>
-              <p>{game.total_rating}</p>
-            </div>;
-          })}
-        </div>
-      )}
-      <StartButton onClick={StartGame}>Start</StartButton>
+      <Link to="/play">
+      <StartButton onClick={StartGame}>Start</StartButton> </Link>
     </InsideContainer>
     // </Container>
   );
