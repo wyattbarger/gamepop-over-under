@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Footer from "../components/Footer";
 import Header from '../components/Header';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
 
 // Add the styled components for the Signup page.
 const Container = styled.div`
@@ -108,6 +110,7 @@ const SignupButton = styled.button`
 function Signup() {
   const [username, setUsername] = useState(""); // Add the state to update the value of the username.
   const [password, setPassword] = useState(""); // Add the state to update the value of the password.
+  const [addUser, { error, data }] = useMutation(ADD_USER); // Add the addUser mutation to the Signup page.
 
   const usernameInputChange = (event) => {
     // Add the function to update the value of the username state.
@@ -124,7 +127,7 @@ function Signup() {
     event.preventDefault();
     console.log("✅ signupFormSubmit triggered."); // * Remove when mvp is complete. (Input fields also will not clear as intended until addUser mutation is linked.) *
     try {
-      const response = await addUser({ variables: { username, password } }); // Add a response variable that will await the addUser mutation, and pass in the username and password variables as defined in server/schemas/resolvers.js.
+      const { data } = await addUser({ variables: { username, password } }); // Add a response variable that will await the addUser mutation, and pass in the username and password variables as defined in server/schemas/resolvers.js.
       setUsername("");
       setPassword("");
     } catch (error) {
