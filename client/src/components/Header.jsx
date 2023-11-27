@@ -1,5 +1,5 @@
 // Add the technologies necessary to make the Header component functional.
-import { Link, useLocation } from "react-router-dom";
+import { Link, useMatch } from "react-router-dom";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 // * Need to add the auth information that will need to be created for the front end to work with the back end, which should be created in the utils directory to decode the JWT token *.
@@ -40,13 +40,17 @@ const Navbar = styled.nav`
   border-left: 1px solid #008f11;
 `;
 
-// Add the active prop to the NavbarLink that will style according to the active route in react-router-dom.
+// Add the active prop to the NavbarLink that will style according to the active route in react-router-dom. This was changed from the original code to use NavLink instead of Link, as this is the proper way to use active stylings with react-router-dom in a Navbar component.
 const NavbarLink = styled(Link)`
   text-decoration: none;
-  color: ${(props) => (props.active ? "#0d0d0d" : "#008f11")};
-  background-color: ${(props) => (props.active ? "#008f11" : "transparent")};
+  color: #008f11;
   padding: 10px 40px 10px 10px;
   transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
+
+  &.active {
+    color: #0d0d0d;
+    background-color: #008f11;
+  }
 
   &:hover {
     color: #0d0d0d;
@@ -54,28 +58,28 @@ const NavbarLink = styled(Link)`
   }
 `;
 
+// Add the ReactiveLink component that will use the useMatch hook to determine if the route is active and style accordingly, fixing our console error when loading Signup.jsx with the current rendition of the Header component.
+function ReactiveLink({ to, children }) {
+  const match = useMatch(to);
+  return (
+    <NavbarLink to={to} className={match ? 'active' : ''}>
+      {children}
+    </NavbarLink>
+  );
+}
+
 // Add the Header component as the default export for the file.
 export default function Header() {
-  const location = useLocation();
-  const currentPath = location.pathname;
   return (
     <HeaderContainer>
       <HeroContainer>
         <HeaderTitle>Game Pop</HeaderTitle>
       </HeroContainer>
       <Navbar>
-        <NavbarLink to="/" active={currentPath === "/"}>
-          Home
-        </NavbarLink>
-        <NavbarLink to="/play" active={currentPath === "/play"}>
-          Play
-        </NavbarLink>
-        <NavbarLink to="/login" active={currentPath === "/login"}>
-          Log In
-        </NavbarLink>
-        <NavbarLink to="/signup" active={currentPath === "/signup"}>
-          Sign Up
-        </NavbarLink>
+        <ReactiveLink to="/">Home</ReactiveLink>
+        <ReactiveLink to="/play">Play</ReactiveLink>
+        <ReactiveLink to="/login">Log In</ReactiveLink>
+        <ReactiveLink to="/signup">Sign Up</ReactiveLink>
       </Navbar>
     </HeaderContainer>
   );

@@ -4,6 +4,7 @@ const path = require('path');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const { authMiddleware } = require('./utils/auth');
+require('dotenv').config();
 
 // Add a require statement for the typeDefs and resolvers files handling GraphQL queries. //
 const { typeDefs, resolvers } = require('./schemas');
