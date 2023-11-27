@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import Header from '../components/Header';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import AuthService from '../utils/auth';
+
 
 // Add the styled components for the Signup page.
 const Container = styled.div`
@@ -130,6 +132,7 @@ function Signup() {
       const { data } = await addUser({ variables: { username, password } }); // Add a response variable that will await the addUser mutation, and pass in the username and password variables as defined in server/schemas/resolvers.js.
       setUsername("");
       setPassword("");
+      AuthService.login(data.addUser.token); // Add the AuthService.login function to the signupFormSubmit function and pass the token returned from the addUser mutation, as an arguement, as specified in auth.js.
     } catch (error) {
       console.log(error);
     }

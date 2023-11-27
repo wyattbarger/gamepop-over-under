@@ -1,5 +1,5 @@
 // Add the import for the necessary technology from jwt-decode to check that the token is no expired and assign then values in local storage.
-import decode from 'jwt-decode';
+import { jwtDecode as decode} from 'jwt-decode';
 
 // Add a new class called Auth service for decoding the jwt tokens, with different methods for various use cases.
 class AuthService {

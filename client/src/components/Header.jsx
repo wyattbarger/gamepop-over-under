@@ -1,5 +1,5 @@
 // Add the technologies necessary to make the Header component functional.
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, useMatch } from "react-router-dom";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 // * Need to add the auth information that will need to be created for the front end to work with the back end, which should be created in the utils directory to decode the JWT token *.
@@ -41,7 +41,7 @@ const Navbar = styled.nav`
 `;
 
 // Add the active prop to the NavbarLink that will style according to the active route in react-router-dom. This was changed from the original code to use NavLink instead of Link, as this is the proper way to use active stylings with react-router-dom in a Navbar component.
-const NavbarLink = styled(NavLink)`
+const NavbarLink = styled(Link)`
   text-decoration: none;
   color: #008f11;
   padding: 10px 40px 10px 10px;
@@ -58,28 +58,27 @@ const NavbarLink = styled(NavLink)`
   }
 `;
 
+function CustomLink({ to, children }) {
+  const match = useMatch(to);
+  return (
+    <NavbarLink to={to} className={match ? 'active' : ''}>
+      {children}
+    </NavbarLink>
+  );
+}
+
 // Add the Header component as the default export for the file.
 export default function Header() {
-  const location = useLocation();
-  const currentPath = location.pathname;
   return (
     <HeaderContainer>
       <HeroContainer>
         <HeaderTitle>Game Pop</HeaderTitle>
       </HeroContainer>
       <Navbar>
-        <NavbarLink to="/" exact activeClassName="active">
-          Home
-        </NavbarLink>
-        <NavbarLink to="/play" activeClassName="active">
-          Play
-        </NavbarLink>
-        <NavbarLink to="/login" activeClassName="active">
-          Log In
-        </NavbarLink>
-        <NavbarLink to="/signup" activeClassName="active">
-          Sign Up
-        </NavbarLink>
+      <CustomLink to="/">Home</CustomLink>
+        <CustomLink to="/play">Play</CustomLink>
+        <CustomLink to="/login">Log In</CustomLink>
+        <CustomLink to="/signup">Sign Up</CustomLink>
       </Navbar>
     </HeaderContainer>
   );
