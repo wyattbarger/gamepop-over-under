@@ -58,7 +58,8 @@ const NavbarLink = styled(Link)`
   }
 `;
 
-function CustomLink({ to, children }) {
+// Add the ReactiveLink component that will use the useMatch hook to determine if the route is active and style accordingly, fixing our console error when loading Signup.jsx with the current rendition of the Header component.
+function ReactiveLink({ to, children }) {
   const match = useMatch(to);
   return (
     <NavbarLink to={to} className={match ? 'active' : ''}>
@@ -75,10 +76,10 @@ export default function Header() {
         <HeaderTitle>Game Pop</HeaderTitle>
       </HeroContainer>
       <Navbar>
-      <CustomLink to="/">Home</CustomLink>
-        <CustomLink to="/play">Play</CustomLink>
-        <CustomLink to="/login">Log In</CustomLink>
-        <CustomLink to="/signup">Sign Up</CustomLink>
+        <ReactiveLink to="/">Home</ReactiveLink>
+        <ReactiveLink to="/play">Play</ReactiveLink>
+        <ReactiveLink to="/login">Log In</ReactiveLink>
+        <ReactiveLink to="/signup">Sign Up</ReactiveLink>
       </Navbar>
     </HeaderContainer>
   );
