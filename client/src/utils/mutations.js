@@ -18,5 +18,15 @@ export const ADD_USER = gql`
 
 // Add the mutation to log an existing User into Game Pop.
 export const LOGIN_USER = gql`
-  
+  mutation Login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      token
+      user {
+        _id
+        username
+        password
+        highscore
+      }
+    }
+  }
 `;
