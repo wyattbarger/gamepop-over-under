@@ -16,7 +16,7 @@ const resolvers = {
           "https://api.igdb.com/v4/games",
           `fields name,total_rating, total_rating_count, url, cover.*;
             where total_rating >0 & total_rating_count >250;
-            limit 10;`,
+            limit 500;`,
           {
             headers: {
               Accept: "application/json",

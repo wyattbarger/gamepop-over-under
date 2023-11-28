@@ -27,40 +27,40 @@ function PlayGame() {
     }
     return arrayCopy;
   }
-  function setGameA() {
-    let randomIndex = Math.floor(Math.random() * game.gameList.length);
+  // function setGameA() {
+  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
 
-    while (
-      game.guessed.includes(randomIndex) ||
-      games[randomIndex] === game.gameB
-    ) {
-      randomIndex = Math.floor(Math.random() * games.length);
-    }
+  //   while (
+  //     game.guessed.includes(randomIndex) ||
+  //     games[randomIndex] === game.gameB
+  //   ) {
+  //     randomIndex = Math.floor(Math.random() * games.length);
+  //   }
 
-    const gameA = games[randomIndex];
-    setGame((prevState) => ({
-      ...prevState,
-      gameA,
-      guessed: [...prevState.guessed, randomIndex],
-    }));
-  }
+  //   const gameA = games[randomIndex];
+  //   setGame((prevState) => ({
+  //     ...prevState,
+  //     gameA,
+  //     guessed: [...prevState.guessed, randomIndex],
+  //   }));
+  // }
 
-  function setGameB() {
-    let randomIndex = Math.floor(Math.random() * game.gameList.length);
+  // function setGameB() {
+  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
 
-    while (
-      game.guessed.includes(randomIndex) ||
-      game.gameList[randomIndex] === game.gameA
-    ) {
-      randomIndex = Math.floor(Math.random() * games.length);
-    }
-    const gameB = games[randomIndex];
-    setGame((prevState) => ({
-      ...prevState,
-      gameB,
-      guessed: [...prevState.guessed, randomIndex],
-    }));
-  }
+  //   while (
+  //     game.guessed.includes(randomIndex) ||
+  //     game.gameList[randomIndex] === game.gameA
+  //   ) {
+  //     randomIndex = Math.floor(Math.random() * games.length);
+  //   }
+  //   const gameB = games[randomIndex];
+  //   setGame((prevState) => ({
+  //     ...prevState,
+  //     gameB,
+  //     guessed: [...prevState.guessed, randomIndex],
+  //   }));
+  // }
 
   useEffect(() => {
     if (!loading && games.length) {
@@ -77,6 +77,33 @@ function PlayGame() {
       });
     }
   }, [loading]);
+
+  function getNextGames() {
+    setGame((prevState) => {
+      let nextGameList = [...prevState.gameList];
+      let nextGuessed = [...prevState.guessed];
+  
+      // Remove guessed games from gameList
+      nextGuessed.forEach((index) => {
+        nextGameList = nextGameList.filter((game, i) => i !== index);
+      });
+  
+      // Select new games
+      let nextGameAIndex = Math.floor(Math.random() * nextGameList.length);
+      let nextGameBIndex;
+      do {
+        nextGameBIndex = Math.floor(Math.random() * nextGameList.length);
+      } while (nextGameAIndex === nextGameBIndex);
+      console.log('Guessed games:', prevState.guessed.map(index => prevState.gameList[index]));
+      return {
+        ...prevState,
+        gameA: nextGameList[nextGameAIndex],
+        gameB: nextGameList[nextGameBIndex],
+        gameList: nextGameList,
+        guessed: [],
+      };
+    });
+  }
 
   return (
     <Container>
@@ -106,6 +133,7 @@ function PlayGame() {
                 <p>{game.gameB?.name}</p>
               </a>
               <p>{game.gameB?.total_rating}</p>
+              <button onClick={getNextGames}>Next Games</button>
             </div>
           </div>
         </div>
