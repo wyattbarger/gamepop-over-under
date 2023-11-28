@@ -28,40 +28,7 @@ function PlayGame() {
     }
     return arrayCopy;
   }
-  // function setGameA() {
-  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
 
-  //   while (
-  //     game.guessed.includes(randomIndex) ||
-  //     games[randomIndex] === game.gameB
-  //   ) {
-  //     randomIndex = Math.floor(Math.random() * games.length);
-  //   }
-
-  //   const gameA = games[randomIndex];
-  //   setGame((prevState) => ({
-  //     ...prevState,
-  //     gameA,
-  //     guessed: [...prevState.guessed, randomIndex],
-  //   }));
-  // }
-
-  // function setGameB() {
-  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
-
-  //   while (
-  //     game.guessed.includes(randomIndex) ||
-  //     game.gameList[randomIndex] === game.gameA
-  //   ) {
-  //     randomIndex = Math.floor(Math.random() * games.length);
-  //   }
-  //   const gameB = games[randomIndex];
-  //   setGame((prevState) => ({
-  //     ...prevState,
-  //     gameB,
-  //     guessed: [...prevState.guessed, randomIndex],
-  //   }));
-  // }
 
   useEffect(() => {
     if (!loading && games.length) {
@@ -112,48 +79,10 @@ function PlayGame() {
         <div>Loading...</div>
       ) : (
         <div className="game-container">
-          <div className="game-card">
-            <img
-              src={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.gameA?.cover.image_id}.jpg`}
-              alt={game.gameA?.name}
-            />
-            <p>{game.gameA?.cover.image_id}</p>
-            <a href={game.gameA?.url}>
-              <p>{game.gameA?.name}</p>
-            </a>
-            <p>{game.gameA?.total_rating}</p>
-          </div>
-          <div className="game-card">
-            <div className="game-card">
-              <img
-                src={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.gameB?.cover.image_id}.jpg`}
-                alt={game.gameB?.name}
-              />
-              <p>{game.gameB?.cover.image_id}</p>
-              <a href={game.gameB?.url}>
-                <p>{game.gameB?.name}</p>
-              </a>
-              <p>{game.gameB?.total_rating}</p>
-              <button onClick={getNextGames}>Next Games</button>
-            </div>
-          </div>
+          <LeftCard game={game} />
+          <RightCard game={game} />
+          <button onClick={getNextGames}>Next Games</button>
         </div>
-        // <div>
-        //   {games.map((game, index) => {
-        //     // console.log(game);
-        //     return <div key={index}>
-        //       <img
-        //         src={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`}
-        //         alt={game.name}
-        //       />
-        //       <p>{game.cover.image_id}</p>
-        //       <a href={game.url}>
-        //         <p>{game.name}</p>
-        //       </a>
-        //       <p>{game.total_rating}</p>
-        //     </div>;
-        //   })}
-        // </div>
       )}
     </Container>
   );
