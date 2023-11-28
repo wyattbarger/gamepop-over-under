@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import GameCard from '../components/GameCard'
+import LeftCard from '../components/LeftCard'
 import { Container } from '@mui/material'
 
 function PlayGame() {

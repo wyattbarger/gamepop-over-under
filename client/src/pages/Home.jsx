@@ -15,7 +15,7 @@ import styled from '@emotion/styled';
 
 const InsideContainer = styled.div
 `   
-    border: 1px solid #008F11;
+    border: 1px solid #ff0276;
     background-color: #0D0D0D;
     padding: 20px;
     text-align: center;
@@ -23,9 +23,9 @@ const InsideContainer = styled.div
 
 const Title = styled.h1
 `   
-    color: #008F11;
-    font-size: 8rem;
-    text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
+    color: #ff4df0;
+    font-size: 9rem;
+    text-shadow: 4px 4px 6px rgba(255, 100, 200, .7);
 `;
 
 const StartButton = styled.button
