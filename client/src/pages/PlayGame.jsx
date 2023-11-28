@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
 import { NavLink } from "react-router-dom";
-import GameCard from "../components/GameCard";
+import LeftCard from "../components/LeftCard";
+import RightCard from "../components/RightCard";
 import { Container } from "@mui/material";
 
 function PlayGame() {
