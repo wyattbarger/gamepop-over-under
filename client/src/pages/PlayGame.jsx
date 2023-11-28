@@ -6,7 +6,15 @@ import { NavLink } from "react-router-dom";
 import LeftCard from "../components/LeftCard";
 import RightCard from "../components/RightCard";
 
-import { Container, Button, Grid } from '@mui/material';
+import { Container, Grid, Box } from '@mui/material';
+import styled from "@emotion/styled";
+
+const GameContainer = styled(Container)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+`;
 
 function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
@@ -30,41 +38,7 @@ function PlayGame() {
     }
     return arrayCopy;
   }
-  // function setGameA() {
-  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
-
-  //   while (
-  //     game.guessed.includes(randomIndex) ||
-  //     games[randomIndex] === game.gameB
-  //   ) {
-  //     randomIndex = Math.floor(Math.random() * games.length);
-  //   }
-
-  //   const gameA = games[randomIndex];
-  //   setGame((prevState) => ({
-  //     ...prevState,
-  //     gameA,
-  //     guessed: [...prevState.guessed, randomIndex],
-  //   }));
-  // }
-
-  // function setGameB() {
-  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
-
-  //   while (
-  //     game.guessed.includes(randomIndex) ||
-  //     game.gameList[randomIndex] === game.gameA
-  //   ) {
-  //     randomIndex = Math.floor(Math.random() * games.length);
-  //   }
-  //   const gameB = games[randomIndex];
-  //   setGame((prevState) => ({
-  //     ...prevState,
-  //     gameB,
-  //     guessed: [...prevState.guessed, randomIndex],
-  //   }));
-  // }
-
+  
   useEffect(() => {
     if (!loading && games.length) {
       console.log("setting game state", games);
@@ -82,23 +56,24 @@ function PlayGame() {
   }, [loading]);
 
   return (
-    <Container>
+    <GameContainer>
       {loading ? (
         <div>Loading...</div>
       ) : (
         <Grid container spacing={2}>
           <Grid item xs={6}>
-            <LeftCard game={game} />
+            <Box display="flex" justifyContent="center">
+              <LeftCard game={game} />
+            </Box>
           </Grid>
           <Grid item xs={6}>
-            <RightCard game={game} />
-          </Grid>
-          <Grid item xs={12}>
-            
+            <Box display="flex" justifyContent="center">
+              <RightCard game={game} />
+            </Box>
           </Grid>
         </Grid>
       )}
-    </Container>
+    </GameContainer>
   );
 }
 

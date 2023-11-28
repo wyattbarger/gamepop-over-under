@@ -1,5 +1,5 @@
 // game that has buttons to vote here
-import { Card, CardContent, CardHeader } from '@mui/material';
+import { Card, CardContent, CardHeader, Button } from '@mui/material';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import styled from "@emotion/styled";
@@ -32,7 +32,26 @@ const CardText = styled.p`
 
 `;
 
+const ButtonContainer = styled.div`
+  // centers buttons
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+`;
 
+const HigherButton = styled(Button)`
+    background-color: #70ffdf;
+    color: #0D0D0D;
+    margin-right: 25px;
+    margin-top: 10px;
+  `;
+
+const LowerButton = styled(Button)`
+    background-color: #70ffdf;
+    color: #0d0d0d;
+    margin-left: 25px;
+    margin-top: 10px;
+  `;
 
 function RightCard({ game, getNextGames }) {
   const navigate = useNavigate();
@@ -78,6 +97,15 @@ function RightCard({ game, getNextGames }) {
           <CardText>
             {game.gameB?.total_rating}
           </CardText>
+
+          <ButtonContainer>
+          <HigherButton onClick={handleHigher}>
+             Higher
+          </HigherButton>
+          <LowerButton onClick={handleLower}>
+             Lower
+          </LowerButton>
+          </ButtonContainer>
         </CardContent>
       </StyledCard>
     );

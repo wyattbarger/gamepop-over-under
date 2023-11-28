@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom/client'
 
 import App from './App.jsx'
-import Home from './pages/home.jsx'
+import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import PlayGame from './pages/PlayGame.jsx'
 import EndMenu from './pages/EndMenu.jsx'
