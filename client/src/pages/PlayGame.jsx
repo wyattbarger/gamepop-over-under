@@ -79,8 +79,8 @@ function PlayGame() {
         <div>Loading...</div>
       ) : (
         <div className="game-container">
-          <LeftCard game={game} />
-          <RightCard game={game} />
+          <LeftCard game={game} getNextGames={getNextGames} />
+          <RightCard game={game} getNextGames={getNextGames}/>
           <button onClick={getNextGames}>Next Games</button>
         </div>
       )}
