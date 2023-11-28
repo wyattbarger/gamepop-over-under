@@ -2,9 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
 import { NavLink } from "react-router-dom";
+
 import LeftCard from "../components/LeftCard";
 import RightCard from "../components/RightCard";
-import { Container } from "@mui/material";
+
+import { Container, Grid, Box } from '@mui/material';
+import styled from "@emotion/styled";
+
+const GameContainer = styled(Container)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+`;
 
 function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
@@ -28,8 +38,7 @@ function PlayGame() {
     }
     return arrayCopy;
   }
-
-
+  
   useEffect(() => {
     if (!loading && games.length) {
       console.log("setting game state", games);
@@ -46,45 +55,25 @@ function PlayGame() {
     }
   }, [loading]);
 
-  function getNextGames() {
-    setGame((prevState) => {
-      let nextGameList = [...prevState.gameList];
-      let nextGuessed = [...prevState.guessed];
-  
-      // Remove guessed games from gameList
-      nextGuessed.forEach((index) => {
-        nextGameList = nextGameList.filter((game, i) => i !== index);
-      });
-  
-      // Select new games
-      let nextGameAIndex = Math.floor(Math.random() * nextGameList.length);
-      let nextGameBIndex;
-      do {
-        nextGameBIndex = Math.floor(Math.random() * nextGameList.length);
-      } while (nextGameAIndex === nextGameBIndex);
-      console.log('Guessed games:', prevState.guessed.map(index => prevState.gameList[index]));
-      return {
-        ...prevState,
-        gameA: nextGameList[nextGameAIndex],
-        gameB: nextGameList[nextGameBIndex],
-        gameList: nextGameList,
-        guessed: [],
-      };
-    });
-  }
-
   return (
-    <Container>
+    <GameContainer>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className="game-container">
-          <LeftCard game={game} getNextGames={getNextGames} />
-          <RightCard game={game} getNextGames={getNextGames}/>
-          <button onClick={getNextGames}>Next Games</button>
-        </div>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Box display="flex" justifyContent="center">
+              <LeftCard game={game} />
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Box display="flex" justifyContent="center">
+              <RightCard game={game} />
+            </Box>
+          </Grid>
+        </Grid>
       )}
-    </Container>
+    </GameContainer>
   );
 }
 
