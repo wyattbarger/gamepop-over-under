@@ -1,46 +1,86 @@
 // game that has buttons to vote here
-import { Card, CardContent, Typography, Grid, Button, CardHeader } from '@mui/material';
-import React from 'react';
-import { useQuery } from "@apollo/client";
-import { FETCH_ALL_GAMES } from "../utils/queries";
+import { Card, CardContent, CardHeader } from '@mui/material';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import styled from "@emotion/styled";
 
-function RightCard({ game }) {
+// emotion styling
+const StyledCard = styled(Card)`
+  // sizing
+  width: 350px;
+  height: 550px;
+  
+  // coloring
+  border: 4px solid #70ffdf; 
+  background-color: #ff4df0;
+`;
+
+// emotion styling
+const StyledImage = styled.img`
+  // sizing
+  width: 250px;
+  height: 350px;
+
+  // positioning
+  display: block;
+  margin: 0 auto;
+`;
+
+const CardText = styled.p`
+  //centers text
+  text-align: center;
+
+`;
+
+
+
+function RightCard({ game, getNextGames }) {
+  const navigate = useNavigate();
     const handleHigher = () => {
+      if (game.gameB?.total_rating > game.gameA?.total_rating) {
+        console.log("correct");
+        getNextGames();
+      } else {
+        console.log("incorrect");
+        navigate('/end');
+      }
     };
   
     const handleLower = () => {
+      if (game.gameA?.total_rating > game.gameB?.total_rating) {
+        console.log("correct");
+        getNextGames();
+      } else {
+        console.log("incorrect");
+        navigate('/end');
+      }
     };
   
     return (
-        <Card>
-          <CardHeader/>
-          <CardContent>
-            {/* image for game */}
-          <a href={game.gameB?.url} target="_blank">
-            <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.gameB?.cover.image_id}.jpg`} alt={game.gameB?.name}/>
-            </a>
-            
-                {/* game name */}
-              <Typography variant="body1">
-                {game.gameB?.name}
-              </Typography>
-            
-            {/* rating */}
-            <Typography variant="body1">
-              {game.gameB?.total_rating}
-            </Typography>
-
-            {/* buttons to vote */}
-            <Button variant="contained" onClick={handleHigher}>
-              Vote Higher
-            </Button>
-
-            <Button variant="contained" onClick={handleLower}>
-              Vote Lower
-            </Button>
-          </CardContent>
-        </Card>
-      );
-    }
+      <StyledCard>
+        <CardHeader />
+        <CardContent>
+          
+          {/* image for the game */}
+          <a href={game.gameB?.url} target="_blank" rel="noopener noreferrer">
+            <StyledImage
+              src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.gameB?.cover.image_id}.jpg`}
+              alt={game.gameB?.name}
+            />
+          </a>
+  
+          {/* game name */}
+          <CardText>
+            {game.gameB?.name}
+          </CardText>
+  
+          {/* rating */}
+          <CardText>
+            {game.gameB?.total_rating}
+          </CardText>
+        </CardContent>
+      </StyledCard>
+    );
+  }
     
     export default RightCard;
