@@ -68,6 +68,11 @@ function ReactiveLink({ to, children }) {
   );
 }
 
+// Add a function that calls the AuthService logout method to handle the logout functionality.
+function handleLogout() {
+  AuthService.logout();
+}
+
 // Add the Header component as the default export for the file.
 export default function Header() {
   return (
