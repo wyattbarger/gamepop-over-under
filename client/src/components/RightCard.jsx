@@ -1,14 +1,29 @@
 // game that has buttons to vote here
 import { Card, CardContent, Typography, Grid, Button, CardHeader } from '@mui/material';
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
 
-function RightCard({ game }) {
+
+
+function RightCard({ game, getNextGames }) {
     const handleHigher = () => {
+      if (game.gameB?.total_rating > game.gameA?.total_rating) {
+        console.log("correct");
+        getNextGames();
+      } else {
+        console.log("incorrect");
+      }
     };
   
     const handleLower = () => {
+      if (game.gameA?.total_rating > game.gameB?.total_rating) {
+        console.log("correct");
+        getNextGames();
+      } else {
+        console.log("incorrect");
+      }
     };
   
     return (
