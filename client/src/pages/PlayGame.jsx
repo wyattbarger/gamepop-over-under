@@ -55,6 +55,33 @@ function PlayGame() {
     }
   }, [loading]);
 
+  function getNextGames() {
+    setGame((prevState) => {
+      let nextGameList = [...prevState.gameList];
+      let nextGuessed = [...prevState.guessed];
+  
+      // Remove guessed games from gameList
+      nextGuessed.forEach((index) => {
+        nextGameList = nextGameList.filter((game, i) => i !== index);
+      });
+  
+      // Select new games
+      let nextGameAIndex = Math.floor(Math.random() * nextGameList.length);
+      let nextGameBIndex;
+      do {
+        nextGameBIndex = Math.floor(Math.random() * nextGameList.length);
+      } while (nextGameAIndex === nextGameBIndex);
+      console.log('Guessed games:', prevState.guessed.map(index => prevState.gameList[index]));
+      return {
+        ...prevState,
+        gameA: nextGameList[nextGameAIndex],
+        gameB: nextGameList[nextGameBIndex],
+        gameList: nextGameList,
+        guessed: [],
+      };
+    });
+  }
+
   return (
     <GameContainer>
       {loading ? (
@@ -63,12 +90,12 @@ function PlayGame() {
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Box display="flex" justifyContent="center">
-              <LeftCard game={game} />
+            <LeftCard game={game} getNextGames={getNextGames} />
             </Box>
           </Grid>
           <Grid item xs={6}>
             <Box display="flex" justifyContent="center">
-              <RightCard game={game} />
+            <RightCard game={game} getNextGames={getNextGames} />
             </Box>
           </Grid>
         </Grid>

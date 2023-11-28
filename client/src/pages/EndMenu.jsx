@@ -6,7 +6,7 @@ function EndMenu() {
   return (
     <div>
       <Typography> start game</Typography>
-      <NavLink to="/start">
+      <NavLink to="/play">
         <Button>
           play again
         </Button>
