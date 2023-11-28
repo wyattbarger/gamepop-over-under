@@ -15,3 +15,8 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+// Add the mutation to log an existing User into Game Pop.
+export const LOGIN_USER = gql`
+  
+`;
