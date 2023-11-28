@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
 import { NavLink } from "react-router-dom";
-import GameCard from "../components/GameCard";
+import LeftCard from "../components/LeftCard";
+import RightCard from "../components/RightCard";
 import { Container } from "@mui/material";
 
 function PlayGame() {
@@ -27,40 +28,40 @@ function PlayGame() {
     }
     return arrayCopy;
   }
-  function setGameA() {
-    let randomIndex = Math.floor(Math.random() * game.gameList.length);
+  // function setGameA() {
+  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
 
-    while (
-      game.guessed.includes(randomIndex) ||
-      games[randomIndex] === game.gameB
-    ) {
-      randomIndex = Math.floor(Math.random() * games.length);
-    }
+  //   while (
+  //     game.guessed.includes(randomIndex) ||
+  //     games[randomIndex] === game.gameB
+  //   ) {
+  //     randomIndex = Math.floor(Math.random() * games.length);
+  //   }
 
-    const gameA = games[randomIndex];
-    setGame((prevState) => ({
-      ...prevState,
-      gameA,
-      guessed: [...prevState.guessed, randomIndex],
-    }));
-  }
+  //   const gameA = games[randomIndex];
+  //   setGame((prevState) => ({
+  //     ...prevState,
+  //     gameA,
+  //     guessed: [...prevState.guessed, randomIndex],
+  //   }));
+  // }
 
-  function setGameB() {
-    let randomIndex = Math.floor(Math.random() * game.gameList.length);
+  // function setGameB() {
+  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
 
-    while (
-      game.guessed.includes(randomIndex) ||
-      game.gameList[randomIndex] === game.gameA
-    ) {
-      randomIndex = Math.floor(Math.random() * games.length);
-    }
-    const gameB = games[randomIndex];
-    setGame((prevState) => ({
-      ...prevState,
-      gameB,
-      guessed: [...prevState.guessed, randomIndex],
-    }));
-  }
+  //   while (
+  //     game.guessed.includes(randomIndex) ||
+  //     game.gameList[randomIndex] === game.gameA
+  //   ) {
+  //     randomIndex = Math.floor(Math.random() * games.length);
+  //   }
+  //   const gameB = games[randomIndex];
+  //   setGame((prevState) => ({
+  //     ...prevState,
+  //     gameB,
+  //     guessed: [...prevState.guessed, randomIndex],
+  //   }));
+  // }
 
   useEffect(() => {
     if (!loading && games.length) {
