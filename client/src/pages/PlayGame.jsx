@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
 import { NavLink } from "react-router-dom";
+
 import LeftCard from "../components/LeftCard";
 import RightCard from "../components/RightCard";
-import { Container } from "@mui/material";
+
+import { Container, Button, Grid } from '@mui/material';
 
 function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
@@ -28,7 +30,40 @@ function PlayGame() {
     }
     return arrayCopy;
   }
+  // function setGameA() {
+  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
 
+  //   while (
+  //     game.guessed.includes(randomIndex) ||
+  //     games[randomIndex] === game.gameB
+  //   ) {
+  //     randomIndex = Math.floor(Math.random() * games.length);
+  //   }
+
+  //   const gameA = games[randomIndex];
+  //   setGame((prevState) => ({
+  //     ...prevState,
+  //     gameA,
+  //     guessed: [...prevState.guessed, randomIndex],
+  //   }));
+  // }
+
+  // function setGameB() {
+  //   let randomIndex = Math.floor(Math.random() * game.gameList.length);
+
+  //   while (
+  //     game.guessed.includes(randomIndex) ||
+  //     game.gameList[randomIndex] === game.gameA
+  //   ) {
+  //     randomIndex = Math.floor(Math.random() * games.length);
+  //   }
+  //   const gameB = games[randomIndex];
+  //   setGame((prevState) => ({
+  //     ...prevState,
+  //     gameB,
+  //     guessed: [...prevState.guessed, randomIndex],
+  //   }));
+  // }
 
   useEffect(() => {
     if (!loading && games.length) {
@@ -46,43 +81,22 @@ function PlayGame() {
     }
   }, [loading]);
 
-  function getNextGames() {
-    setGame((prevState) => {
-      let nextGameList = [...prevState.gameList];
-      let nextGuessed = [...prevState.guessed];
-  
-      // Remove guessed games from gameList
-      nextGuessed.forEach((index) => {
-        nextGameList = nextGameList.filter((game, i) => i !== index);
-      });
-  
-      // Select new games
-      let nextGameAIndex = Math.floor(Math.random() * nextGameList.length);
-      let nextGameBIndex;
-      do {
-        nextGameBIndex = Math.floor(Math.random() * nextGameList.length);
-      } while (nextGameAIndex === nextGameBIndex);
-      console.log('Guessed games:', prevState.guessed.map(index => prevState.gameList[index]));
-      return {
-        ...prevState,
-        gameA: nextGameList[nextGameAIndex],
-        gameB: nextGameList[nextGameBIndex],
-        gameList: nextGameList,
-        guessed: [],
-      };
-    });
-  }
-
   return (
     <Container>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div className="game-container">
-          <LeftCard game={game} />
-          <RightCard game={game} />
-          <button onClick={getNextGames}>Next Games</button>
-        </div>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <LeftCard game={game} />
+          </Grid>
+          <Grid item xs={6}>
+            <RightCard game={game} />
+          </Grid>
+          <Grid item xs={12}>
+            
+          </Grid>
+        </Grid>
       )}
     </Container>
   );
