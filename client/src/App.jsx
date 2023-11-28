@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Outlet } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home.jsx";
 
 const client = new ApolloClient({
   uri: "/graphql",
