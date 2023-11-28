@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Footer from "../components/Footer";
 import Header from '../components/Header';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import AuthService from '../utils/auth';
+
 
 // Add the styled components for the Login page. * These were copied from Signup.jsx and refractored slightly to reach a functional mvp quickly. *
 const Container = styled.div`
@@ -107,6 +111,7 @@ const LoginButton = styled.button`
 function Login() {
   const [username, setUsername] = useState(""); // Add the state to update the value of the username.
   const [password, setPassword] = useState(""); // Add the state to update the value of the password.
+  const [login, { error, data }] = useMutation(LOGIN_USER); // Add the login mutation to the Login page.
 
   const usernameInputChange = (event) => {
     // Add the function to update the value of the username state.
@@ -123,9 +128,10 @@ function Login() {
     event.preventDefault();
     console.log("✅ loginFormSubmit triggered."); // * Remove when mvp is complete. (Input fields also will not clear as intended until addUser mutation is linked.) *
     try {
-      const response = await login({ variables: { username, password } }); // Add a response variable using line 77 of server/resolvers.js to see what the variables should be set to.
+      const { data } = await login({ variables: { username, password } }); // Add a response variable using line 77 of server/resolvers.js to see what the variables should be set to.
       setUsername("");
       setPassword("");
+      AuthService.login(data.login.token);
     } catch (error) {
       console.log(error);
     }
