@@ -2,11 +2,10 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Footer from "../components/Footer";
-import Header from '../components/Header';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import AuthService from '../utils/auth';
-
+import Header from "../components/Header";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
+import AuthService from "../utils/auth";
 
 // Add the styled components for the Login page. * These were copied from Signup.jsx and refractored slightly to reach a functional mvp quickly. *
 const Container = styled.div`
@@ -29,9 +28,8 @@ const LoginCard = styled.div`
 
 const CardTitle = styled.h1`
   color: #ff4df0;
-  font-size: 8rem;
+  font-size: 6rem;
   white-space: nowrap;
-  
   
   text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
                1px 3px 3px rgba(255, 255, 255, 1);
@@ -53,6 +51,8 @@ const UsernameLabel = styled.label`
 `;
 
 const UsernameInput = styled.input`
+  font-family: "Press Start 2P";
+  height: 45px;
   background-color: #0d0d0d;
   font-size: 24px;
   color: #70ffdf;
@@ -77,6 +77,8 @@ const PasswordLabel = styled.label`
 `;
 
 const PasswordInput = styled.input`
+  font-family: "Press Start 2P";
+  height: 45px;
   background-color: #0d0d0d;
   font-size: 24px;
   color: #70ffdf;
@@ -94,6 +96,7 @@ const PasswordInput = styled.input`
 `;
 
 const LoginButton = styled.button`
+  font-family: "Press Start 2P";
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
