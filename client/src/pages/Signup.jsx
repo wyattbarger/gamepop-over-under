@@ -27,49 +27,51 @@ const SignupCard = styled.div`
 `;
 
 const CardTitle = styled.h1`
-  color: #008f11;
-  font-size: 6rem;
-  white-space: nowrap;
-  padding: 0 20px;
-  text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
+color: #ff4df0;
+font-size: 8rem;
+white-space: nowrap;
+
+text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
+             1px 3px 3px rgba(255, 255, 255, 1);
 `;
 
 const SignupForm = styled.form`
-  color: #008f11;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+color: #008f11;
+font-size: 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
 `;
 
 const UsernameLabel = styled.label`
-  padding: 10px;
-  font-size: 2rem;
-  white-space: nowrap;
+padding: 10px;
+font-size: 20px;
+white-space: nowrap;
+color: #70ffdf;
 `;
 
 const UsernameInput = styled.input`
-  font-family: "Press Start 2P";
-  height: 45px;
-  background-color: #0d0d0d;
-  font-size: 1rem;
-  color: #008f11;
-  border: 1px solid #1a1a1a;
-  border-radius: 5px;
-  box-sizing: border-box;
-  padding: 5px;
-  transition: background-color 0.3s ease-in-out;
+background-color: #0d0d0d;
+font-size: 24px;
+color: #70ffdf;
+border: 1px solid #70ffdf;
+border-radius: 5px;
+box-sizing: border-box;
+padding: 5px;
+transition: background-color 0.3s ease-in-out;
 
-  &:focus {
-    background-color: #2d2d2d;
-    border-color: #008f11;
-    outline: none;
-  }
+&:focus {
+  background-color: #2d2d2d;
+  border-color: #70ffdf;
+  outline: none;
+}
 `;
 
 const PasswordLabel = styled.label`
-  padding: 10px 0;
-  font-size: 2rem;
-  white-space: nowrap;
+padding: 10px 0;
+font-size: 20px;
+white-space: nowrap;
+color: #70ffdf;
 `;
 
 const PasswordInput = styled.input`
@@ -77,41 +79,38 @@ const PasswordInput = styled.input`
   height: 45px;
 
   background-color: #0d0d0d;
-  font-size: 1rem;
-  color: #008f11;
-  border: 1px solid #1a1a1a;
+  font-size: 24px;
+  color: #70ffdf;
   border-radius: 5px;
+  border: 1px solid #70ffdf;
   box-sizing: border-box;
   padding: 5px;
   transition: background-color 0.3s ease-in-out;
 
   &:focus {
     background-color: #2d2d2d;
-    border-color: #008f11;
+    border-color: #70ffdf;
     outline: none;
   }
 `;
 
 const SignupButton = styled.button`
-  font-family: "Press Start 2P";
-  background-color: #008f11;
+  background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
-  font-size: 20px;
-  margin: 20px 10px;
-  padding: 20px 12px;
+  font-size: 22px;
+  margin: 10px 10px;
+  padding: 24px 15px;
   cursor: pointer;
   border-radius: 50%;
-  border: 2px solid #005f0c;
-  width: 175px;
-  height: 175px;
+  border: 2px solid #70ffdf;
   transition: all 0.1s ease-in-out;
 
-  :active {
-    background-color: #005f0c;
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
-    transform: scale(0.95);
-  }
+:active {
+background-color: #ff4df0;
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+transform: scale(0.97);
+}
 `;
 
 // Add the function which builds out our Signup page with styled components.
@@ -159,7 +158,7 @@ function Signup() {
           />
           <PasswordLabel htmlFor="password">Choose a Password</PasswordLabel>
           <PasswordInput
-            type="password"
+            type="text"
             id="password"
             value={password}
             onChange={passwordInputChange}

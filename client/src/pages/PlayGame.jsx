@@ -17,6 +17,10 @@ const GameContainer = styled(Container)`
   min-height: 100vh; 
 `;
 
+const StyledBox = styled(Box)`
+  margin: 0px 50px;
+`;
+
 function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
@@ -85,23 +89,23 @@ function PlayGame() {
   return (
     <GameContainer>
       <ScoreContext.Provider value={score}>
-      <Header />
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <Box display="flex" justifyContent="center">
-            <LeftCard game={game} getNextGames={getNextGames} score={score} setScore={setScore}/>
-            </Box>
+        <Header />
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <StyledBox display="flex" justifyContent="center">
+                <LeftCard game={game} getNextGames={getNextGames} score={score} setScore={setScore} />
+              </StyledBox>
+            </Grid>
+            <Grid item xs={6}>
+              <StyledBox display="flex" justifyContent="center">
+                <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore} />
+              </StyledBox>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <Box display="flex" justifyContent="center">
-            <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore}/>
-            </Box>
-          </Grid>
-        </Grid>
-      )}
+        )}
       </ScoreContext.Provider>
     </GameContainer>
   );

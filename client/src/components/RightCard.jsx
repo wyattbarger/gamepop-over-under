@@ -29,6 +29,7 @@ const StyledImage = styled.img`
 const CardText = styled.p`
   //centers text
   text-align: center;
+  font-size: 1rem;
 
 `;
 
@@ -41,37 +42,44 @@ const ButtonContainer = styled.div`
 
 const HigherButton = styled.button`
   background-color: #045ded;
-  color: #70ffdf;
+  color: #f5f5f5;
+  text-align: center;
   font-size: 1rem;
-  cursor: pointer;
+  margin: 10px 10px;
   padding: 26px 14px;
+  cursor: pointer;
   border-radius: 50%;
-  border: 3px solid #1d269b;
+  border: 2px solid #1d269b;
+  transition: all 0.1s ease-in-out;
+
   position: relative;
   right: 10%;
 
-
-  :active {
-    background-color: #2f5bbf;
-    color: #4ec4b8;
-    box-shadow: inset 0px 0px 5px rgba(30, 30, 30, 1);
+:active {
+  background-color: #045ded;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: scale(0.97);
   `;
 
 const LowerButton = styled.button`
   background-color: #045ded;
-  color: #70ffdf;
+  color: #f5f5f5;
+  text-align: center;
   font-size: 1rem;
+  margin: 10px 10px;
+  padding: 26px 14px;
   cursor: pointer;
   border-radius: 50%;
-  padding: 26px 14px;
-  border: 3px solid #1d269b;
+  border: 2px solid #1d269b;
+  transition: all 0.1s ease-in-out;
+
   position: relative;
   left: 10%;
 
-  :active {
-    background-color: #2f5bbf;
-    color: #4ec4b8;
-    box-shadow: inset 0px 0px 5px rgba(30, 30, 30, 1);
+:active {
+  background-color: #045ded;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: scale(0.97);
   `;
 
 function RightCard({ game, getNextGames, score, setScore }) {
