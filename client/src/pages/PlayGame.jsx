@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
-import { NavLink } from "react-router-dom";
+import { ScoreContext } from "../utils/scoreContext";
+import Header from "../components/Header";
 
 import LeftCard from "../components/LeftCard";
 import RightCard from "../components/RightCard";
@@ -20,7 +21,7 @@ function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
 
-  const [score, setScore] = useState(1);
+  const [score, setScore] = useState(0);
   const [game, setGame] = useState({
     gameList: [],
     gameA: null,
@@ -83,6 +84,8 @@ function PlayGame() {
 
   return (
     <GameContainer>
+      <ScoreContext.Provider value={score}>
+      <Header />
       {loading ? (
         <div>Loading...</div>
       ) : (
@@ -99,6 +102,7 @@ function PlayGame() {
           </Grid>
         </Grid>
       )}
+      </ScoreContext.Provider>
     </GameContainer>
   );
 }
