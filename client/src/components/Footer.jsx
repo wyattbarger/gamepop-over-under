@@ -47,7 +47,7 @@ const GithubIcon = styled.img`
   filter: invert(22%) sepia(17%) saturate(9%) hue-rotate(315deg) brightness(100%) contrast(87%);
 
   &:hover {
-    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #008f11);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #70ffdf);
   }
 `;
 
@@ -59,7 +59,7 @@ const IssuesIcon = styled.img`
   filter: invert(22%) sepia(17%) saturate(9%) hue-rotate(315deg) brightness(100%) contrast(87%);
 
   &:hover {
-    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #FF073A);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #FF007F);
   }
 `;
 

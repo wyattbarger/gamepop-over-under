@@ -8,7 +8,7 @@ import styled from "@emotion/styled";
 const StyledCard = styled(Card)`
   // sizing
   width: 350px;
-  height: 550px;
+  height: 575px;
   
   // coloring
   border: 4px solid #70ffdf; 
@@ -37,7 +37,7 @@ const ButtonContainer = styled.div`
   // centers buttons
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-bottom: 20px;
 `;
 
 const HigherButton = styled.button`
@@ -92,7 +92,7 @@ function RightCard({ game, getNextGames, score, setScore }) {
         getNextGames();
       } else {
         console.log("incorrect");
-        navigate('/end');
+        navigate('/gameover');
       }
     };
   
@@ -104,7 +104,7 @@ function RightCard({ game, getNextGames, score, setScore }) {
         getNextGames();
       } else {
         console.log("incorrect");
-        navigate('/end');
+        navigate('/gameover');
       }
     };
   

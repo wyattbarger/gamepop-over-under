@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader } from '@mui/material';
 const StyledCard = styled(Card)`
   // sizing
   width: 350px;
-  height: 550px;
+  height: 575px;
   
   // coloring
   border: 4px solid #70ffdf; 
