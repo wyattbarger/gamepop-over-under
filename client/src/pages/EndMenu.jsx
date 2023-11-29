@@ -25,8 +25,8 @@ const CardTitle = styled.h1`
   font-size: 10rem;
   white-space: nowrap;
   padding: 0 20px;
-  text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
-    1px 3px 3px rgba(255, 255, 255, 1);
+  text-shadow: 2px 5px 3px rgba(112, 255, 225, 1),
+               2px 5px 3px rgba(255, 255, 255, 1);
 `;
 
 const ButtonContainer = styled.div`

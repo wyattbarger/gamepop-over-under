@@ -13,6 +13,12 @@ const StyledCard = styled(Card)`
   // coloring
   border: 4px solid #70ffdf;
   background-color: #ff4df0;
+
+  // Mobile styling
+  @media (max-width: 800px) {
+    width: 280px;
+    height: 425px;
+  }
 `;
 
 // emotion styling
@@ -20,16 +26,30 @@ const StyledImage = styled.img`
   // sizing
   width: 250px;
   height: 350px;
+  
+
+  // coloring
+  border: 2px solid #70ffdf;
 
   // positioning
   display: block;
   margin: 0 auto;
+
+  // Mobile styling
+  @media (max-width: 800px) {
+    width: 150px;
+    height: 210px;
+  }
 `;
 
 const CardText = styled.p`
   //centers text
   text-align: center;
-  font-size: 1rem;
+  font-size: 22px;
+
+  // Mobile styling
+  @media (max-width: 800px) {
+    font-size: 18px;
 `;
 
 const ButtonContainer = styled.div`
@@ -44,44 +64,62 @@ const HigherButton = styled.button`
   background-color: #045ded;
   color: #f5f5f5;
   text-align: center;
-  font-size: 10px;
+  font-size: .65;
   margin: 10px 10px;
-  padding: 26px 14px;
+  padding: 36px 14px;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #1d269b;
   transition: all 0.1s ease-in-out;
 
   position: relative;
-  right: 10%;
+  left: 15%;
+  top: -5%;
 
 :active {
   background-color: #045ded;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   transform: scale(0.97);
-  `;
+}
+
+@media (max-width: 800px) {
+  font-size: 8px; 
+  padding: 12px 4px;  
+  margin: 8px 2px;
+  right: 3%; 
+}
+`;
 
 const LowerButton = styled.button`
 font-family: "Press Start 2P";
   background-color: #045ded;
   color: #f5f5f5;
   text-align: center;
-  font-size: 10px;
+  font-size: 1rempx;
   margin: 10px 10px;
-  padding: 26px 14px;
+  padding: 36px 14px;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #1d269b;
   transition: all 0.1s ease-in-out;
 
   position: relative;
-  left: 10%;
+  right: 15%;
+  top: 5%;
 
 :active {
   background-color: #045ded;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   transform: scale(0.97);
-  `;
+}
+
+@media (max-width: 800px) {
+  font-size: 8px; 
+  padding: 12px 4px;  
+  margin: 8px 2px;
+  left: 3%; 
+} 
+`;
 
 function RightCard({ game, getNextGames, score, setScore }) {
   const navigate = useNavigate();
@@ -128,8 +166,8 @@ function RightCard({ game, getNextGames, score, setScore }) {
         <CardText>{game.gameB?.total_rating}</CardText>
 
         <ButtonContainer>
-          <HigherButton onClick={handleHigher}>Higher</HigherButton>
-          <LowerButton onClick={handleLower}>Lower</LowerButton>
+          <LowerButton onClick={handleLower}>Less</LowerButton>
+          <HigherButton onClick={handleHigher}>More</HigherButton>
         </ButtonContainer>
       </CardContent>
     </StyledCard>

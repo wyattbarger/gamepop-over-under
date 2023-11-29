@@ -18,8 +18,8 @@ const Title = styled.h1`
   color: #ff4df0;
   font-size: 10rem;
   
-  text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
-               1px 3px 3px rgba(255, 255, 255, 1);
+  text-shadow: 2px 5px 3px rgba(112, 255, 225, 1),
+               2px 5px 3px rgba(255, 255, 255, 1);
 `;
 
 const StartButton = styled.button`
@@ -27,9 +27,9 @@ const StartButton = styled.button`
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
-  font-size: 24px;
+  font-size: 18px;
   margin: 10px 10px;
-  padding: 36px 26px;
+  padding: 50px 20px;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #70ffdf;
