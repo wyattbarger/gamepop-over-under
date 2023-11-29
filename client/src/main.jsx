@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         path: '/play',
         element: <PlayGame />
       }, {
-        path: '/end',
+        path: '/gameover',
         element: <EndMenu />
       }, {
         path: '/signup',
