@@ -16,14 +16,13 @@ const GameoverCard = styled.div`
   align-items: center;
   width: 90%;
   max-width: 1000px;
-  border: 1px solid #70ffdf;
   margin: 10px;
   padding: 20px;
 `;
 
 const CardTitle = styled.h1`
   color: #ff4df0;
-  font-size: 4rem;
+  font-size: 10rem;
   white-space: nowrap;
   padding: 0 20px;
   text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
@@ -37,6 +36,7 @@ const ButtonContainer = styled.div`
 `;
 
 const HomeButton = styled.button`
+  font-family: 'Press Start 2P';
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
@@ -46,8 +46,8 @@ const HomeButton = styled.button`
   cursor: pointer;
   border-radius: 50%;
   border: 3px solid #70ffdf;
-  width: 120px;
-  height: 120px;
+  width: 175px;
+  height: 175px;
   transition: all 0.1s ease-in-out;
 
   :active {
@@ -58,17 +58,18 @@ const HomeButton = styled.button`
 `;
 
 const PlayAgainButton = styled.button`
+font-family: 'Press Start 2P';
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
   font-size: 20px;
   margin: 20px 10px;
-  padding: 20px 12px;
+  padding: 20px 10px;
   cursor: pointer;
   border-radius: 50%;
   border: 3px solid #70ffdf;
-  width: 120px;
-  height: 120px;
+  width: 175px;
+  height: 175px;
   transition: all 0.1s ease-in-out;
 
   :active {
