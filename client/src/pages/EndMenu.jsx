@@ -99,7 +99,7 @@ font-family: 'Press Start 2P';
 
 // Add the history prop to the EndMenu component, as indicated by react-router docs, so t.
 function EndMenu() {
-  const [awaitFadeOut setIsVisible] = useState(true);
+  const [awaitFadeOut, setAwaitFadeOut] = useState(true);
   const navigate = useNavigate();
   const buttonLinkFunction = (route) => {
     setIsVisible(false);
