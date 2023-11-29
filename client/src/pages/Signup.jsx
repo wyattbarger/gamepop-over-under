@@ -13,6 +13,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 `;
 
 const SignupCard = styled.div`
@@ -97,8 +99,8 @@ const SignupButton = styled.button`
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #005f0c;
-  width: 75px;
-  height: 75px;
+  width: 90px;
+  height: 90px;
   transition: all 0.1s ease-in-out;
 
   :active {

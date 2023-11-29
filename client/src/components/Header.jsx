@@ -2,7 +2,7 @@
 import { Link, useMatch } from "react-router-dom";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-// * Need to add the auth information that will need to be created for the front end to work with the back end, which should be created in the utils directory to decode the JWT token *.
+import AuthService from "../utils/auth";
 
 // Add the styled components for the Header component.
 const HeaderContainer = styled.header`
@@ -58,11 +58,26 @@ const NavbarLink = styled(Link)`
   }
 `;
 
+// Add the LogoutButton styled component that will be used to handle the logout functionality, which will display conditionally based on the loginStatus state variable.
+const LogoutButton = styled.button`
+  color: #008f11;
+  background-color: #0d0d0d;
+  height: 38.5px;
+  border: none;
+  padding: 10px 40px 10px 10px;
+  transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
+
+  &:hover {
+    color: #0d0d0d;
+    background-color: #008f11;
+  }
+`;
+
 // Add the ReactiveLink component that will use the useMatch hook to determine if the route is active and style accordingly, fixing our console error when loading Signup.jsx with the current rendition of the Header component.
 function ReactiveLink({ to, children }) {
   const match = useMatch(to);
   return (
-    <NavbarLink to={to} className={match ? 'active' : ''}>
+    <NavbarLink to={to} className={match ? "active" : ""}>
       {children}
     </NavbarLink>
   );
@@ -70,6 +85,11 @@ function ReactiveLink({ to, children }) {
 
 // Add the Header component as the default export for the file.
 export default function Header() {
+  const [loginStatus, setLoginStatus] = useState(AuthService.loggedIn())
+  // Add a function that calls the AuthService logout method to handle the logout functionality.
+  function initLogout() {
+    AuthService.logout();
+  }
   return (
     <HeaderContainer>
       <HeroContainer>
@@ -78,8 +98,14 @@ export default function Header() {
       <Navbar>
         <ReactiveLink to="/">Home</ReactiveLink>
         <ReactiveLink to="/play">Play</ReactiveLink>
-        <ReactiveLink to="/login">Log In</ReactiveLink>
-        <ReactiveLink to="/signup">Sign Up</ReactiveLink>
+        {loginStatus ? (
+          <LogoutButton onClick={initLogout}>Log Out</LogoutButton>
+        ) : (
+          <>
+            <ReactiveLink to="/login">Log In</ReactiveLink>
+            <ReactiveLink to="/signup">Sign Up</ReactiveLink>
+          </>
+        )}
       </Navbar>
     </HeaderContainer>
   );

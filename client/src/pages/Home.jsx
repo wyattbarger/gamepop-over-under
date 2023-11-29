@@ -1,22 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
-// const Container = styled.div
-// `
-//     background-color: #0D0D0D ;
-//     border: 4px solid #008F11;
-//     height: 100vh;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     overflow: hidden;
-// `;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+`;
 
+// Width of 1000px will match containers on Signup.jsx and Login.jsx, if we want them to be consistent, I left it out of this commit in case there were conflicting opinions on it.
 const InsideContainer = styled.div`
   border: 1px solid #008f11;
   background-color: #0d0d0d;
+  margin: 10px;
   padding: 20px;
   text-align: center;
+  justify-content: center;
 `;
 
 const Title = styled.h1`
@@ -45,20 +47,22 @@ const StartButton = styled.button`
 const Home = () => {
   console.log("howdy pardner");
 
-
   const StartGame = () => {
     // Add logic for starting the game
     console.log("start pressed");
   };
 
   return (
-    // <Container>
-    <InsideContainer>
-      <Title>Game Pop</Title>
-      <Link to="/play">
-      <StartButton onClick={StartGame}>Start</StartButton> </Link>
-    </InsideContainer>
-    // </Container>
+    <Container>
+      <Header />
+      <InsideContainer>
+        <Title>Game Pop</Title>
+        <Link to="/play">
+          <StartButton onClick={StartGame}>Start</StartButton>{" "}
+        </Link>
+      </InsideContainer>
+      <Footer />
+    </Container>
   );
 };
 
