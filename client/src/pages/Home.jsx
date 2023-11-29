@@ -23,7 +23,7 @@ const Title = styled.h1`
 
 const StartButton = styled.button`
   background-color: #ff4df0;
-  color: #f5f5f5;
+  color: #70ffdf;
   text-align: center;
   font-size: 24px;
   margin: 10px 10px;
