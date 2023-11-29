@@ -35,6 +35,7 @@ const typeDefs = `
 
     type Query {
         users: [User]
+        leaderboard(username: String!, highscore: Int): [User]
         user(username: String!): User
         fetchAllGames: [Game]
         games: [Game]

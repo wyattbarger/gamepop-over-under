@@ -8,7 +8,7 @@ import styled from "@emotion/styled";
 const StyledCard = styled(Card)`
   // sizing
   width: 350px;
-  height: 550px;
+  height: 575px;
   
   // coloring
   border: 4px solid #70ffdf; 
@@ -36,7 +36,7 @@ const ButtonContainer = styled.div`
   // centers buttons
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-bottom: 20px;
 `;
 
 const HigherButton = styled.button`
@@ -49,6 +49,7 @@ const HigherButton = styled.button`
   border: 3px solid #1d269b;
   position: relative;
   right: 10%;
+
 
   :active {
     background-color: #2f5bbf;
