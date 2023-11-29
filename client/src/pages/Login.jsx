@@ -2,11 +2,10 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Footer from "../components/Footer";
-import Header from '../components/Header';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
-import AuthService from '../utils/auth';
-
+import Header from "../components/Header";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
+import AuthService from "../utils/auth";
 
 // Add the styled components for the Login page. * These were copied from Signup.jsx and refractored slightly to reach a functional mvp quickly. *
 const Container = styled.div`
@@ -23,14 +22,13 @@ const LoginCard = styled.div`
   align-items: center;
   width: 90%;
   max-width: 1000px;
-  border: 1px solid #008f11;
   margin: 10px;
   padding: 20px;
 `;
 
 const CardTitle = styled.h1`
   color: #008f11;
-  font-size: 4rem;
+  font-size: 6rem;
   white-space: nowrap;
   padding: 0 20px;
   text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
@@ -45,13 +43,15 @@ const LoginForm = styled.form`
 
 const UsernameLabel = styled.label`
   padding: 10px;
-  font-size: 16px;
+  font-size: 2rem;
   white-space: nowrap;
 `;
 
 const UsernameInput = styled.input`
+  font-family: "Press Start 2P";
+  height: 45px;
   background-color: #0d0d0d;
-  font-size: 20px;
+  font-size: 1rem;
   color: #008f11;
   border: 1px solid #1a1a1a;
   border-radius: 5px;
@@ -68,13 +68,15 @@ const UsernameInput = styled.input`
 
 const PasswordLabel = styled.label`
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 2rem;
   white-space: nowrap;
 `;
 
 const PasswordInput = styled.input`
+  font-family: "Press Start 2P";
+  height: 45px;
   background-color: #0d0d0d;
-  font-size: 20px;
+  font-size: 1rem;
   color: #008f11;
   border: 1px solid #1a1a1a;
   border-radius: 5px;
@@ -90,6 +92,7 @@ const PasswordInput = styled.input`
 `;
 
 const LoginButton = styled.button`
+  font-family: "Press Start 2P";
   background-color: #008f11;
   color: #f5f5f5;
   text-align: center;
@@ -99,8 +102,8 @@ const LoginButton = styled.button`
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #005f0c;
-  width: 90px;
-  height: 90px;
+  width: 175px;
+  height: 175px;
   transition: all 0.1s ease-in-out;
 
   :active {

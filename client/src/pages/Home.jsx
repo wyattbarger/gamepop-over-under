@@ -22,6 +22,7 @@ const Title = styled.h1`
 `;
 
 const StartButton = styled.button`
+  font-family: 'Press Start 2P';
   background-color: #ff4df0;
   color: #70ffdf;
   text-align: center;
@@ -31,6 +32,8 @@ const StartButton = styled.button`
   cursor: pointer;
   border-radius: 50%;
   border: 3px solid #70ffdf;
+  width: 175px;
+  height: 175px;
 
   :active {
     background-color: #d83ea8;
