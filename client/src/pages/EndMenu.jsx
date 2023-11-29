@@ -18,24 +18,28 @@ const GameoverCard = styled.div`
   max-width: 1000px;
   margin: 10px;
   padding: 20px;
-  animation: fadeInAnimation ease 2.4s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation: ${(props) =>
+      props.awaitFadeOut ? "fadeInAnimation" : "fadeOutAnimation"}
+    ease 1.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 
-    @keyframes fadeInAnimation {
-      0% {
-          opacity: 0;
-      }
-      100% {
-          opacity: 1;
-       }
-       @keyframes fadeOutAnimation {
-        0% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOutAnimation {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 `;
 
 const CardTitle = styled.h1`
@@ -102,12 +106,12 @@ function EndMenu() {
   const [awaitFadeOut, setAwaitFadeOut] = useState(true);
   const navigate = useNavigate();
   const buttonLinkFunction = (route) => {
-    setIsVisible(false);
+    setAwaitFadeOut(false);
     setTimeout(() => navigate(route), 2400);
   };
   return (
     <Container>
-      <GameoverCard isVisible={awaitFadeOut}>
+      <GameoverCard awaitFadeOut={awaitFadeOut}>
         <CardTitle>Game Over!</CardTitle>
         <ButtonContainer>
             <HomeButton onClick={() => buttonLinkFunction('/')}>Home</HomeButton>
