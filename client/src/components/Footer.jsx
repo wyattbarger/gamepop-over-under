@@ -20,9 +20,9 @@ const FooterContainer = styled.footer`
   transition: border-top-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
 
   &:hover {
-    border-top-color: #ff4df0;
-    color: #ff4df0;
-    box-shadow: 0 0 15px #ff4df0;
+    border-top-color: #70ffdf;
+    color: #70ffdf;
+    box-shadow: 0 0 7px #70ffdf;
   }
 `;
 
