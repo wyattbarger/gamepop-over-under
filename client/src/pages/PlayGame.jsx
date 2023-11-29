@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
-import { NavLink } from "react-router-dom";
+import { ScoreContext } from "../utils/scoreContext";
+import Header from "../components/Header";
 
 import LeftCard from "../components/LeftCard";
 import RightCard from "../components/RightCard";
@@ -20,6 +21,7 @@ function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
 
+  const [score, setScore] = useState(0);
   const [game, setGame] = useState({
     gameList: [],
     gameA: null,
@@ -41,8 +43,6 @@ function PlayGame() {
   
   useEffect(() => {
     if (!loading && games.length) {
-      console.log("setting game state", games);
-
       const shuffledGames = shuffle(games);
 
       setGame({
@@ -84,22 +84,25 @@ function PlayGame() {
 
   return (
     <GameContainer>
+      <ScoreContext.Provider value={score}>
+      <Header />
       {loading ? (
         <div>Loading...</div>
       ) : (
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Box display="flex" justifyContent="center">
-            <LeftCard game={game} getNextGames={getNextGames} />
+            <LeftCard game={game} getNextGames={getNextGames} score={score} setScore={setScore}/>
             </Box>
           </Grid>
           <Grid item xs={6}>
             <Box display="flex" justifyContent="center">
-            <RightCard game={game} getNextGames={getNextGames} />
+            <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore}/>
             </Box>
           </Grid>
         </Grid>
       )}
+      </ScoreContext.Provider>
     </GameContainer>
   );
 }
