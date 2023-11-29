@@ -30,6 +30,11 @@ const HeaderContainer = styled.header`
 const ScoreTracker = styled.h1`
   font-size: 2.5rem;
   color: #ff4df0;
+
+  @media (max-width: 800px) {
+    font-size: 1.2rem; 
+    margin-bottom: 10px;
+  }
 `;
 
 const Navbar = styled.nav`
@@ -63,20 +68,28 @@ const NavbarLink = styled(Link)`
     color: #70ffdf;
     background-color: #045ded;
   }
+
+  @media (max-width: 800px) {
+    font-size: .8rem;
+    
+  }
 `;
 
 // Add the LogoutButton styled component that will be used to handle the logout functionality, which will display conditionally based on the loginStatus state variable.
 const LogoutButton = styled.button`
-  color: #008f11;
-  background-color: #0d0d0d;
-  height: 38.5px;
-  border: none;
-  padding: 10px 40px 10px 10px;
+  text-decoration: none;
+  color: #ff4df0;
+  font-size: 20px;
+  padding: 10px;
   transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
 
   &:hover {
-    color: #0d0d0d;
-    background-color: #008f11;
+    color: #70ffdf;
+    background-color: #045ded;
+  }
+
+  @media (max-width: 800px) {
+    font-size: .8rem;
   }
 `;
 
