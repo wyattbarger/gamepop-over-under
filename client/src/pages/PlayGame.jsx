@@ -107,3 +107,4 @@ function PlayGame() {
 export default PlayGame;
 
 // two cards(?) animation slide left, or maybe a shuffle animation? idk, want the transition from game on the right becoming game on the left smooth
+// prob will not get ot this

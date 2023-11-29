@@ -8,44 +8,42 @@ import AuthService from "../utils/auth";
 const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   height: 75px;
   width: 100%;
   position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px 10px 10px 10px;
-  margin-bottom: 5px;
+  top: 2%;
+  right: 2%;
 `;
-
-const HeroContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 10px 10px 10px 10px;
-`;
-const HeaderTitle = styled.h1`
-  font-size: 38.5px;
-  color: #008f11;
-  text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
-`;
+// const HeroContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   padding: 10px 10px 10px 10px;
+// `;
+// const HeaderTitle = styled.h1`
+//   font-size: 38.5px;
+//   color: #008f11;
+//   text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
+// `;
 
 const Navbar = styled.nav`
   display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  border-top: 1px solid #008f11;
-  border-bottom: 1px solid #008f11;
-  border-left: 1px solid #008f11;
+  border: 1px solid #70ffdf;
+  
 `;
 
 // Add the active prop to the NavbarLink that will style according to the active route in react-router-dom. This was changed from the original code to use NavLink instead of Link, as this is the proper way to use active stylings with react-router-dom in a Navbar component.
 const NavbarLink = styled(Link)`
   text-decoration: none;
   color: #008f11;
-  padding: 10px 40px 10px 10px;
+  padding: 20px 30px 20px 20px;
+  align-items: center;
   transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &.active {
     color: #0d0d0d;
@@ -66,6 +64,9 @@ const LogoutButton = styled.button`
   border: none;
   padding: 10px 40px 10px 10px;
   transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     color: #0d0d0d;
@@ -92,12 +93,11 @@ export default function Header() {
   }
   return (
     <HeaderContainer>
-      <HeroContainer>
-        <HeaderTitle>Game Pop</HeaderTitle>
-      </HeroContainer>
+      {/* <HeroContainer> */}
+        {/* <HeaderTitle></HeaderTitle> */}
+      {/* </HeroContainer> */}
       <Navbar>
         <ReactiveLink to="/">Home</ReactiveLink>
-        <ReactiveLink to="/play">Play</ReactiveLink>
         {loginStatus ? (
           <LogoutButton onClick={initLogout}>Log Out</LogoutButton>
         ) : (
