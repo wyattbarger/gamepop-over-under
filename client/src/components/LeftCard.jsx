@@ -13,6 +13,12 @@ const StyledCard = styled(Card)`
   // coloring
   border: 4px solid #70ffdf; 
   background-color: #ff4df0;
+
+  // Mobile styling
+  @media (max-width: 800px) {
+    width: 280px;
+    height: 425px;
+  }
 `;
 
 // emotion styling
@@ -21,14 +27,29 @@ const StyledImage = styled.img`
   width: 250px;
   height: 350px;
 
+  // coloring
+  border: 2px solid #70ffdf;
+
   // positioning
   display: block;
   margin: 0 auto;
+
+  // Mobile styling
+  // Hide on smaller screens
+  @media (max-width: 800px) {
+    width: 150px;
+    height: 210px;
+  }
 `;
 
 const CardText = styled.p`
   //centers text
   text-align: center;
+  font-size: 22px;
+
+  // Mobile styling
+  @media (max-width: 800px) {
+    font-size: 18px;
 
 `;
 

@@ -31,8 +31,8 @@ const CardTitle = styled.h1`
   font-size: 6rem;
   white-space: nowrap;
 
-  text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
-    1px 3px 3px rgba(255, 255, 255, 1);
+  text-shadow: 2px 5px 3px rgba(112, 255, 225, 1),
+               2px 5px 3px rgba(255, 255, 255, 1);
 `;
 
 const SignupForm = styled.form`
@@ -100,9 +100,9 @@ font-family: "Press Start 2P";
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
-  font-size: 24px;
+  font-size: 18px;
   margin: 10px 10px;
-  padding: 24px 15px;
+  padding: 50px 28px;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #70ffdf;
