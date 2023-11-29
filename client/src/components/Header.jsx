@@ -14,48 +14,54 @@ const HeaderContainer = styled.header`
   height: 75px;
   width: 100%;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 2%;
+  left: 2%;
   padding: 10px 10px 10px 10px;
   margin-bottom: 5px;
 `;
 
-const HeroContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 10px 10px 10px 10px;
-`;
-const HeaderTitle = styled.h1`
-  font-size: 38.5px;
-  color: #008f11;
-  text-shadow: 3px 4px 4px rgba(0, 255, 65, 1);
+// const HeroContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   padding: 10px 10px 10px 10px;
+// `;
+
+const ScoreTracker = styled.h1`
+  font-size: 2.5rem;
+  color: #ff4df0;
 `;
 
 const Navbar = styled.nav`
   display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  border-top: 1px solid #008f11;
-  border-bottom: 1px solid #008f11;
-  border-left: 1px solid #008f11;
+  flex-direction: flex-end;
+
+  
+  border: 1px solid #70ffdf;
+
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  margin-bottom: 5px;
 `;
 
 // Add the active prop to the NavbarLink that will style according to the active route in react-router-dom. This was changed from the original code to use NavLink instead of Link, as this is the proper way to use active stylings with react-router-dom in a Navbar component.
 const NavbarLink = styled(Link)`
   text-decoration: none;
-  color: #008f11;
-  padding: 10px 40px 10px 10px;
+  color: #ff4df0;
+  font-size: 1.6rem;
+  padding: 10px;
   transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
+  
 
   &.active {
-    color: #0d0d0d;
-    background-color: #008f11;
+    color: #1d269b;
+    background-color: #ff4df0;
   }
 
   &:hover {
-    color: #0d0d0d;
-    background-color: #008f11;
+    color: #70ffdf;
+    background-color: #045ded;
   }
 `;
 
@@ -94,13 +100,13 @@ export default function Header() {
   }
   return (
     <HeaderContainer>
-      <HeroContainer>
-        <HeaderTitle>Game Pop</HeaderTitle>
-      </HeroContainer>
+      {/* <HeroContainer>
+        {/* <HeaderTitle>Game Pop</HeaderTitle> *
+      {/* </HeroContainer> */} 
+      <ScoreTracker>Score: {score}</ScoreTracker>
       <Navbar>
         <ReactiveLink to="/">Home</ReactiveLink>
-        <ReactiveLink to="/play">Play</ReactiveLink>
-        <HeaderTitle>Score: {score}</HeaderTitle>
+        {/* <ReactiveLink to="/play">Play</ReactiveLink> */}
         {loginStatus ? (
           <LogoutButton onClick={initLogout}>Log Out</LogoutButton>
         ) : (
