@@ -95,13 +95,12 @@ const resolvers = {
         return { token, user };
       },
 
-      updateScore: async (parent, { username, highscore }) => {
-        const user = await User.findOneAndUpdate(
-          { username: username },
-          { highscore: highscore },
-          { new: true }
-        );
-        return user;
+      updateScore: async (parent, { username, score }) => {
+        const user = await User.findOne({ username: username });
+        if (score > user.highscore) {
+           await User.findOneAndUpdate({ username: username }, { highscore: score });
+        }
+        return User.findOne({ username: username });
       },
     },
 };

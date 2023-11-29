@@ -30,3 +30,12 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const UPDATE_HIGHSCORE_MUTATION = gql`
+  mutation UpdateScore($username: String!, $score: Int!) {
+    updateScore(username: $username, score: $score) {
+      username
+      highscore
+    }
+  }
+`;

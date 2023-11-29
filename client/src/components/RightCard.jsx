@@ -74,7 +74,7 @@ const LowerButton = styled.button`
     box-shadow: inset 0px 0px 5px rgba(30, 30, 30, 1);
   `;
 
-function RightCard({ game, getNextGames, score, setScore }) {
+function RightCard({ game, getNextGames, score, setScore, handleEndGame }) {
   const navigate = useNavigate();
     const handleHigher = () => {
       if (game.gameB?.total_rating > game.gameA?.total_rating) {
@@ -83,7 +83,7 @@ function RightCard({ game, getNextGames, score, setScore }) {
         console.log(score);
         getNextGames();
       } else {
-        console.log("incorrect");
+        handleEndGame();
         navigate('/gameover');
       }
     };
@@ -95,7 +95,7 @@ function RightCard({ game, getNextGames, score, setScore }) {
         console.log(score);
         getNextGames();
       } else {
-        console.log("incorrect");
+        handleEndGame();
         navigate('/gameover');
       }
     };
