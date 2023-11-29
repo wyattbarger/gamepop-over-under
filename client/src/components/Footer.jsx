@@ -20,9 +20,9 @@ const FooterContainer = styled.footer`
   transition: border-top-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
 
   &:hover {
-    border-top-color: #005f0c;
-    color: #005f0c;
-    box-shadow: 0 0 7px #005f0c;
+    border-top-color: #ff4df0;
+    color: #ff4df0;
+    box-shadow: 0 0 15px #ff4df0;
   }
 `;
 
@@ -34,7 +34,7 @@ const Copyright = styled.p`
   transition: color 0.7s ease;
 
   &:hover {
-    color: #005f0c;
+    color: #70ffdf;
   }
 `;
 
@@ -47,7 +47,7 @@ const GithubIcon = styled.img`
   filter: invert(22%) sepia(17%) saturate(9%) hue-rotate(315deg) brightness(100%) contrast(87%);
 
   &:hover {
-    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #008f11);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #70ffdf);
   }
 `;
 
@@ -59,7 +59,7 @@ const IssuesIcon = styled.img`
   filter: invert(22%) sepia(17%) saturate(9%) hue-rotate(315deg) brightness(100%) contrast(87%);
 
   &:hover {
-    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #FF073A);
+    filter: brightness(0) saturate(100%) invert(27%) sepia(9%) saturate(748%) hue-rotate(158deg) brightness(89%) contrast(88%) drop-shadow(0 0 3px #FF007F);
   }
 `;
 
