@@ -20,9 +20,9 @@ const FooterContainer = styled.footer`
   transition: border-top-color 0.7s ease, color 0.7s ease, box-shadow 0.7s ease;
 
   &:hover {
-    border-top-color: #005f0c;
-    color: #005f0c;
-    box-shadow: 0 0 7px #005f0c;
+    border-top-color: #70ffdf;
+    color: #70ffdf;
+    box-shadow: 0 0 7px #70ffdf;
   }
 `;
 
@@ -34,7 +34,7 @@ const Copyright = styled.p`
   transition: color 0.7s ease;
 
   &:hover {
-    color: #005f0c;
+    color: #70ffdf;
   }
 `;
 
