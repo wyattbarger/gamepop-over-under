@@ -10,7 +10,7 @@ const resolvers = {
     },
 
     users: async (parent) => {
-      return User.find({}).populate("highscore");
+      return User.find({}).sort({ highscore: -1 }).limit(10);
     },
 
     fetchAllGames: async () => {
