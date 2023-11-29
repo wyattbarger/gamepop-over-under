@@ -20,6 +20,7 @@ const StyledImage = styled.img`
   // sizing
   width: 250px;
   height: 350px;
+  
 
   // positioning
   display: block;
@@ -145,3 +146,5 @@ function RightCard({ game, getNextGames, score, setScore }) {
   }
     
     export default RightCard;
+
+    // note for tomorrow switch the buttons around so higher is on the right lower is on the left
