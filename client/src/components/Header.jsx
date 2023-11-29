@@ -61,13 +61,11 @@ const NavbarLink = styled(Link)`
 // Add the LogoutButton styled component that will be used to handle the logout functionality, which will display conditionally based on the loginStatus state variable.
 const LogoutButton = styled.button`
   color: #008f11;
+  background-color: #0d0d0d;
+  height: 38.5px;
+  border: none;
   padding: 10px 40px 10px 10px;
   transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
-
-  &.active {
-    color: #0d0d0d;
-    background-color: #008f11;
-  }
 
   &:hover {
     color: #0d0d0d;
@@ -87,7 +85,7 @@ function ReactiveLink({ to, children }) {
 
 // Add the Header component as the default export for the file.
 export default function Header() {
-  const [loginStatus, setLoginStatus] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(AuthService.loggedIn())
   // Add a function that calls the AuthService logout method to handle the logout functionality.
   function initLogout() {
     AuthService.logout();
@@ -100,8 +98,14 @@ export default function Header() {
       <Navbar>
         <ReactiveLink to="/">Home</ReactiveLink>
         <ReactiveLink to="/play">Play</ReactiveLink>
-        <ReactiveLink to="/login">Log In</ReactiveLink>
-        <ReactiveLink to="/signup">Sign Up</ReactiveLink>
+        {loginStatus ? (
+          <LogoutButton onClick={initLogout}>Log Out</LogoutButton>
+        ) : (
+          <>
+            <ReactiveLink to="/login">Log In</ReactiveLink>
+            <ReactiveLink to="/signup">Sign Up</ReactiveLink>
+          </>
+        )}
       </Navbar>
     </HeaderContainer>
   );
