@@ -1,8 +1,9 @@
 // Add the technologies necessary to make the Header component functional.
 import { Link, useMatch } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "@emotion/styled";
 import AuthService from "../utils/auth";
+import { ScoreContext } from "../utils/scoreContext";
 
 // Add the styled components for the Header component.
 const HeaderContainer = styled.header`
@@ -85,6 +86,7 @@ function ReactiveLink({ to, children }) {
 
 // Add the Header component as the default export for the file.
 export default function Header() {
+  const score = useContext(ScoreContext);
   const [loginStatus, setLoginStatus] = useState(AuthService.loggedIn())
   // Add a function that calls the AuthService logout method to handle the logout functionality.
   function initLogout() {
@@ -98,6 +100,7 @@ export default function Header() {
       <Navbar>
         <ReactiveLink to="/">Home</ReactiveLink>
         <ReactiveLink to="/play">Play</ReactiveLink>
+        <HeaderTitle>Score: {score}</HeaderTitle>
         {loginStatus ? (
           <LogoutButton onClick={initLogout}>Log Out</LogoutButton>
         ) : (
