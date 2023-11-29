@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
 
+// Add the history prop to the EndMenu component, as indicated by react-router docs, so t.
 function EndMenu() {
   return (
     <div>
