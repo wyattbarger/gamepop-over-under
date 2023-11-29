@@ -53,11 +53,13 @@ const LowerButton = styled(Button)`
     margin-top: 10px;
   `;
 
-function RightCard({ game, getNextGames }) {
+function RightCard({ game, getNextGames, score, setScore }) {
   const navigate = useNavigate();
     const handleHigher = () => {
       if (game.gameB?.total_rating > game.gameA?.total_rating) {
         console.log("correct");
+        setScore(prevScore => prevScore + 1);
+        console.log(score);
         getNextGames();
       } else {
         console.log("incorrect");
@@ -68,6 +70,8 @@ function RightCard({ game, getNextGames }) {
     const handleLower = () => {
       if (game.gameA?.total_rating > game.gameB?.total_rating) {
         console.log("correct");
+        setScore(prevScore => prevScore + 1);
+        console.log(score);
         getNextGames();
       } else {
         console.log("incorrect");

@@ -20,6 +20,7 @@ function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
 
+  const [score, setScore] = useState(1);
   const [game, setGame] = useState({
     gameList: [],
     gameA: null,
@@ -41,8 +42,6 @@ function PlayGame() {
   
   useEffect(() => {
     if (!loading && games.length) {
-      console.log("setting game state", games);
-
       const shuffledGames = shuffle(games);
 
       setGame({
@@ -90,12 +89,12 @@ function PlayGame() {
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Box display="flex" justifyContent="center">
-            <LeftCard game={game} getNextGames={getNextGames} />
+            <LeftCard game={game} getNextGames={getNextGames} score={score} setScore={setScore}/>
             </Box>
           </Grid>
           <Grid item xs={6}>
             <Box display="flex" justifyContent="center">
-            <RightCard game={game} getNextGames={getNextGames} />
+            <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore}/>
             </Box>
           </Grid>
         </Grid>
