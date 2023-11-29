@@ -27,57 +27,58 @@ const SignupCard = styled.div`
 `;
 
 const CardTitle = styled.h1`
-color: #ff4df0;
-font-size: 8rem;
-white-space: nowrap;
+  color: #ff4df0;
+  font-size: 6rem;
+  white-space: nowrap;
 
-text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
-             1px 3px 3px rgba(255, 255, 255, 1);
+  text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
+    1px 3px 3px rgba(255, 255, 255, 1);
 `;
 
 const SignupForm = styled.form`
-color: #008f11;
-font-size: 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+  color: #008f11;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const UsernameLabel = styled.label`
-padding: 10px;
-font-size: 20px;
-white-space: nowrap;
-color: #70ffdf;
+  padding: 10px;
+  font-size: 20px;
+  white-space: nowrap;
+  color: #70ffdf;
 `;
 
 const UsernameInput = styled.input`
-background-color: #0d0d0d;
-font-size: 24px;
-color: #70ffdf;
-border: 1px solid #70ffdf;
-border-radius: 5px;
-box-sizing: border-box;
-padding: 5px;
-transition: background-color 0.3s ease-in-out;
+font-family: "Press Start 2P";
+  background-color: #0d0d0d;
+  font-size: 24px;
+  height: 45px;
+  color: #70ffdf;
+  border: 1px solid #70ffdf;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  transition: background-color 0.3s ease-in-out;
 
-&:focus {
-  background-color: #2d2d2d;
-  border-color: #70ffdf;
-  outline: none;
-}
+  &:focus {
+    background-color: #2d2d2d;
+    border-color: #70ffdf;
+    outline: none;
+  }
 `;
 
 const PasswordLabel = styled.label`
-padding: 10px 0;
-font-size: 20px;
-white-space: nowrap;
-color: #70ffdf;
+  padding: 10px 0;
+  font-size: 20px;
+  white-space: nowrap;
+  color: #70ffdf;
 `;
 
 const PasswordInput = styled.input`
   font-family: "Press Start 2P";
   height: 45px;
-
   background-color: #0d0d0d;
   font-size: 24px;
   color: #70ffdf;
@@ -95,10 +96,11 @@ const PasswordInput = styled.input`
 `;
 
 const SignupButton = styled.button`
+font-family: "Press Start 2P";
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
-  font-size: 22px;
+  font-size: 24px;
   margin: 10px 10px;
   padding: 24px 15px;
   cursor: pointer;
@@ -106,11 +108,11 @@ const SignupButton = styled.button`
   border: 2px solid #70ffdf;
   transition: all 0.1s ease-in-out;
 
-:active {
-background-color: #ff4df0;
-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-transform: scale(0.97);
-}
+  :active {
+    background-color: #ff4df0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(0.97);
+  }
 `;
 
 // Add the function which builds out our Signup page with styled components.

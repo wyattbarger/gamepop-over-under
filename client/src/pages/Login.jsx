@@ -28,9 +28,8 @@ const LoginCard = styled.div`
 
 const CardTitle = styled.h1`
   color: #ff4df0;
-  font-size: 8rem;
+  font-size: 6rem;
   white-space: nowrap;
-  
   
   text-shadow: 1px 3px 3px rgba(112, 255, 225, 1),
                1px 3px 3px rgba(255, 255, 255, 1);
@@ -97,6 +96,7 @@ const PasswordInput = styled.input`
 `;
 
 const LoginButton = styled.button`
+  font-family: "Press Start 2P";
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
