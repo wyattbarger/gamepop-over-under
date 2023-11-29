@@ -39,18 +39,38 @@ const ButtonContainer = styled.div`
   margin-top: 16px;
 `;
 
-const HigherButton = styled(Button)`
-    background-color: #70ffdf;
-    color: #0D0D0D;
-    margin-right: 25px;
-    margin-top: 10px;
+const HigherButton = styled.button`
+  background-color: #045ded;
+  color: #70ffdf;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 26px 14px;
+  border-radius: 50%;
+  border: 3px solid #1d269b;
+  position: relative;
+  right: 10%;
+
+  :active {
+    background-color: #2f5bbf;
+    color: #4ec4b8;
+    box-shadow: inset 0px 0px 5px rgba(30, 30, 30, 1);
   `;
 
-const LowerButton = styled(Button)`
-    background-color: #70ffdf;
-    color: #0d0d0d;
-    margin-left: 25px;
-    margin-top: 10px;
+const LowerButton = styled.button`
+  background-color: #045ded;
+  color: #70ffdf;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 26px 14px;
+  border: 3px solid #1d269b;
+  position: relative;
+  left: 10%;
+
+  :active {
+    background-color: #2f5bbf;
+    color: #4ec4b8;
+    box-shadow: inset 0px 0px 5px rgba(30, 30, 30, 1);
   `;
 
 function RightCard({ game, getNextGames, score, setScore }) {
