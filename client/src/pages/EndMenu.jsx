@@ -1,6 +1,6 @@
-import React from "react";
+import { React, useState } from "react";
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -18,6 +18,28 @@ const GameoverCard = styled.div`
   max-width: 1000px;
   margin: 10px;
   padding: 20px;
+  animation: ${(props) =>
+      props.awaitFadeOut ? "fadeInAnimation" : "fadeOutAnimation"}
+    ease 1.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOutAnimation {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 `;
 
 const CardTitle = styled.h1`
@@ -81,17 +103,19 @@ font-family: 'Press Start 2P';
 
 // Add the history prop to the EndMenu component, as indicated by react-router docs, so t.
 function EndMenu() {
+  const [awaitFadeOut, setAwaitFadeOut] = useState(true);
+  const navigate = useNavigate();
+  const buttonLinkFunction = (route) => {
+    setAwaitFadeOut(false);
+    setTimeout(() => navigate(route), 2400);
+  };
   return (
     <Container>
-      <GameoverCard>
+      <GameoverCard awaitFadeOut={awaitFadeOut}>
         <CardTitle>Game Over!</CardTitle>
         <ButtonContainer>
-          <Link to="/">
-            <HomeButton>Home</HomeButton>
-          </Link>
-          <Link to="/play">
-            <PlayAgainButton>Play Again</PlayAgainButton>
-          </Link>
+            <HomeButton onClick={() => buttonLinkFunction('/')}>Home</HomeButton>
+            <PlayAgainButton onClick={() => buttonLinkFunction('/play')}>Play Again</PlayAgainButton>
         </ButtonContainer>
       </GameoverCard>
     </Container>
