@@ -26,7 +26,6 @@ const StyledImage = styled.img`
   // sizing
   width: 250px;
   height: 320px;
-  
 
   // coloring
   border: 2px solid #70ffdf;
@@ -64,7 +63,7 @@ const HigherButton = styled.button`
   background-color: #045ded;
   color: #f5f5f5;
   text-align: center;
-  font-size: .6rem;
+  font-size: 0.6rem;
   margin: 10px 10px;
   padding: 28px 12px;
   cursor: pointer;
@@ -74,32 +73,31 @@ const HigherButton = styled.button`
 
   position: relative;
   left: 15%;
-  
 
-:active {
-  background-color: #045ded;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  transform: scale(0.97);
-}
+  :active {
+    background-color: #045ded;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(0.97);
+  }
 
-:hover {
-  box-shadow: 0 0 3px #0d0d0d;
-}
+  :hover {
+    box-shadow: 0 0 3px #0d0d0d;
+  }
 
-@media (max-width: 800px) {
-  font-size: 8px; 
-  padding: 12px 4px;  
-  margin: 8px 2px;
-  right: 3%; 
-}
+  @media (max-width: 800px) {
+    font-size: 8px;
+    padding: 12px 4px;
+    margin: 8px 2px;
+    right: 3%;
+  }
 `;
 
 const LowerButton = styled.button`
-font-family: "Press Start 2P";
+  font-family: "Press Start 2P";
   background-color: #045ded;
   color: #f5f5f5;
   text-align: center;
-  font-size: .6rem;
+  font-size: 0.6rem;
   margin: 10px 10px;
   padding: 28px 12px;
   cursor: pointer;
@@ -111,36 +109,50 @@ font-family: "Press Start 2P";
   right: 15%;
   top: 5%;
 
-:active {
-  background-color: #045ded;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  transform: scale(0.97);
-}
+  :active {
+    background-color: #045ded;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(0.97);
+  }
 
-:hover {
-  box-shadow: 0 0 3px #0d0d0d;
-}
+  :hover {
+    box-shadow: 0 0 3px #0d0d0d;
+  }
 
-@media (max-width: 800px) {
-  font-size: 8px; 
-  padding: 12px 4px;  
-  margin: 8px 2px;
-  left: 3%; 
-} 
+  @media (max-width: 800px) {
+    font-size: 8px;
+    padding: 12px 4px;
+    margin: 8px 2px;
+    left: 3%;
+  }
 `;
 
-function RightCard({ game, getNextGames, score, setScore, handleEndGame }) {
+function RightCard({
+  game,
+  getNextGames,
+  score,
+  setScore,
+  handleEndGame,
+  hideLeftRating,
+  setHideLeftRating,
+}) {
   const navigate = useNavigate();
   const handleHigher = () => {
     if (game.gameB?.total_rating > game.gameA?.total_rating) {
       console.log("correct");
       setScore((prevScore) => prevScore + 1);
-      console.log(score);
-      getNextGames();
+      setHideLeftRating(false);
+      setTimeout(() => {
+        getNextGames();
+        setHideLeftRating(true);
+      }, 2000);
     } else {
       console.log("incorrect");
-      handleEndGame();
-      navigate("/gameover");
+      setHideLeftRating(false);
+      setTimeout(() => {
+        handleEndGame();
+        navigate("/gameover");
+      }, 2000);
     }
   };
 
@@ -148,12 +160,18 @@ function RightCard({ game, getNextGames, score, setScore, handleEndGame }) {
     if (game.gameA?.total_rating > game.gameB?.total_rating) {
       console.log("correct");
       setScore((prevScore) => prevScore + 1);
-      console.log(score);
-      getNextGames();
+      setHideLeftRating(false);
+      setTimeout(() => {
+        getNextGames();
+        setHideLeftRating(true);
+      }, 2000);
     } else {
       console.log("incorrect");
-      handleEndGame();
-      navigate("/gameover");
+      setHideLeftRating(false);
+      setTimeout(() => {
+        handleEndGame();
+        navigate("/gameover");
+      }, 2000);
     }
   };
 
@@ -173,8 +191,7 @@ function RightCard({ game, getNextGames, score, setScore, handleEndGame }) {
         <CardText>{game.gameB?.name}</CardText>
 
         {/* rating */}
-        <CardText>{game.gameB?.total_rating}</CardText>
-
+        {!hideLeftRating && <CardText>{game.gameB?.total_rating}</CardText>}
         <ButtonContainer>
           <LowerButton onClick={handleLower}>Less</LowerButton>
           <HigherButton onClick={handleHigher}>More</HigherButton>
