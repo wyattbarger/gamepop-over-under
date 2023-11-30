@@ -5,7 +5,19 @@ import Header from "../components/Header";
 
 
 const Container = styled.div`
-//  functionally doing nothing right now
+opacity: 0;
+  animation: fadeInAnimation ease 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 const InsideContainer = styled.div`
