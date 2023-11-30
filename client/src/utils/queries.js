@@ -12,3 +12,12 @@ query Query {
     }
   }
     `;
+
+export const GET_LEADERS = gql`
+  query Query {
+    users {
+      username
+      highscore
+    }
+  }
+`;

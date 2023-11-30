@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation} from "@apollo/client";
 import { FETCH_ALL_GAMES } from "../utils/queries";
+import { UPDATE_HIGHSCORE_MUTATION } from "../utils/mutations";
 import { ScoreContext } from "../utils/scoreContext";
 import Header from "../components/Header";
+import { jwtDecode as decode} from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 import LeftCard from "../components/LeftCard";
 import RightCard from "../components/RightCard";
@@ -24,6 +27,16 @@ const StyledBox = styled(Box)`
 function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
+
+  const [updateHighScore, {data: mutationData}] = useMutation(UPDATE_HIGHSCORE_MUTATION);
+  const handleEndGame = () => {
+    const token = localStorage.getItem('id_token');
+    const decoded = decode(token);
+    const username = decoded.data.username
+    console.log('username:', username);
+    console.log('score:', score);
+    updateHighScore({ variables: { username: username, score: score } });
+};
 
   const [score, setScore] = useState(0);
   const [game, setGame] = useState({
@@ -101,7 +114,7 @@ function PlayGame() {
             </Grid>
             <Grid item xs={6}>
               <StyledBox display="flex" justifyContent="center">
-                <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore} />
+                <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore} handleEndGame={handleEndGame}/>
               </StyledBox>
             </Grid>
           </Grid>

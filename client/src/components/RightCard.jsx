@@ -121,7 +121,7 @@ font-family: "Press Start 2P";
 } 
 `;
 
-function RightCard({ game, getNextGames, score, setScore }) {
+function RightCard({ game, getNextGames, score, setScore, handleEndGame }) {
   const navigate = useNavigate();
   const handleHigher = () => {
     if (game.gameB?.total_rating > game.gameA?.total_rating) {
@@ -131,6 +131,7 @@ function RightCard({ game, getNextGames, score, setScore }) {
       getNextGames();
     } else {
       console.log("incorrect");
+      handleEndGame();
       navigate("/gameover");
     }
   };
@@ -143,6 +144,7 @@ function RightCard({ game, getNextGames, score, setScore }) {
       getNextGames();
     } else {
       console.log("incorrect");
+      handleEndGame();
       navigate("/gameover");
     }
   };
