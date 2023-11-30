@@ -85,11 +85,14 @@ const HomeButton = styled.button`
     margin: 10px 5px;
   }
 
-
   :active {
     background-color: #d83ea8;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
     transform: scale(0.95);
+  }
+
+  :hover {
+    box-shadow: 0 0 10px #70ffdf;
   }
 `;
 
@@ -121,6 +124,10 @@ font-family: 'Press Start 2P';
     background-color: #d83ea8;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
     transform: scale(0.95);
+  }
+
+  :hover {
+    box-shadow: 0 0 10px #70ffdf;
   }
 `;
 

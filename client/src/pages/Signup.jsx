@@ -145,6 +145,10 @@ font-family: "Press Start 2P";
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
     transform: scale(0.97);
   }
+
+  :hover {
+    box-shadow: 0 0 10px #70ffdf;
+  }
 `;
 
 // Add the function which builds out our Signup page with styled components.
