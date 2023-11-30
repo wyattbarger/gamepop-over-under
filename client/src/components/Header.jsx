@@ -27,22 +27,11 @@ const HeaderContainer = styled.header`
 //   padding: 10px 10px 10px 10px;
 // `;
 
-const ScoreTracker = styled.h1`
-  font-size: 2.5rem;
-  color: #ff4df0;
 
-  @media (max-width: 800px) {
-    font-size: 1.2rem; 
-    margin-bottom: 10px;
-  }
-`;
 
 const Navbar = styled.nav`
   display: flex;
   flex-direction: flex-end;
-
-  
-  border: 1px solid #70ffdf;
 
   position: fixed;
   top: 5%;
@@ -70,7 +59,7 @@ const NavbarLink = styled(Link)`
   }
 
   @media (max-width: 800px) {
-    font-size: .8rem;
+    font-size: .6rem;
     
   }
 `;
@@ -99,9 +88,20 @@ transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
 
 }`;
 
+// const ScoreTracker = styled.h1`
+//   font-size: 2.5rem;
+//   color: #ff4df0;
+
+//   @media (max-width: 800px) {
+//     font-size: 1.2rem; 
+//     margin-bottom: 10px;
+//   }
+// `;
+
 // Add the ReactiveLink component that will use the useMatch hook to determine if the route is active and style accordingly, fixing our console error when loading Signup.jsx with the current rendition of the Header component.
 function ReactiveLink({ to, children }) {
   const match = useMatch(to);
+  
   return (
     <NavbarLink to={to} className={match ? "active" : ""}>
       {children}
@@ -111,7 +111,7 @@ function ReactiveLink({ to, children }) {
 
 // Add the Header component as the default export for the file.
 export default function Header() {
-  const score = useContext(ScoreContext);
+  // const score = useContext(ScoreContext);
   const [loginStatus, setLoginStatus] = useState(AuthService.loggedIn())
   // Add a function that calls the AuthService logout method to handle the logout functionality.
   function initLogout() {
@@ -122,9 +122,10 @@ export default function Header() {
       {/* <HeroContainer>
         {/* <HeaderTitle>Game Pop</HeaderTitle> *
       {/* </HeroContainer> */} 
-      <ScoreTracker>Score: {score}</ScoreTracker>
+      {/* <ScoreTracker>Score: {score}</ScoreTracker> */}
       <Navbar>
         <ReactiveLink to="/">Home</ReactiveLink>
+        <ReactiveLink to="/leaderboard">Leaderboard</ReactiveLink>
         {/* <ReactiveLink to="/play">Play</ReactiveLink> */}
         {loginStatus ? (
           <LogoutButton onClick={initLogout}>Log Out</LogoutButton>

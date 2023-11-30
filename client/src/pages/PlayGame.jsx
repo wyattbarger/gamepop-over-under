@@ -24,6 +24,24 @@ const StyledBox = styled(Box)`
   margin: 0px 50px;
 `;
 
+const ScoreTracker = styled.p`
+position: absolute; 
+top: 0;
+left: 0%;
+font-size: 2.5rem;
+color: #ff4df0;
+margin-top: 3%;
+margin-left: 2%;
+
+
+
+
+@media (max-width: 800px) {
+  font-size: 1rem;
+  margin-top: 10%;
+}
+`;
+
 function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
@@ -103,7 +121,8 @@ function PlayGame() {
 
   return (
     <GameContainer>
-      <ScoreContext.Provider value={score}>
+      <ScoreTracker>Score: {score}</ScoreTracker>
+      {/* <ScoreContext.Provider value={score}> */}
         <Header />
         {loading ? (
           <div>Loading...</div>
@@ -121,7 +140,7 @@ function PlayGame() {
             </Grid>
           </Grid>
         )}
-      </ScoreContext.Provider>
+      {/* </ScoreContext.Provider> */}
     </GameContainer>
   );
 }
