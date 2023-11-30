@@ -76,22 +76,28 @@ const NavbarLink = styled(Link)`
 `;
 
 // Add the LogoutButton styled component that will be used to handle the logout functionality, which will display conditionally based on the loginStatus state variable.
-const LogoutButton = styled.button`
-  text-decoration: none;
-  color: #ff4df0;
-  font-size: 20px;
-  padding: 10px;
-  transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
+const LogoutButton = styled(Link)`
+text-decoration: none;
+color: #ff4df0;
+font-size: 1.6rem;
+padding: 10px;
+transition: color 0.3s ease-in-out, background-color 0.6s ease-in-out;
 
-  &:hover {
-    color: #70ffdf;
-    background-color: #045ded;
-  }
 
-  @media (max-width: 800px) {
-    font-size: .8rem;
-  }
-`;
+&.active {
+  color: #1d269b;
+  background-color: #ff4df0;
+}
+
+&:hover {
+  color: #70ffdf;
+  background-color: #045ded;
+}
+
+@media (max-width: 800px) {
+  font-size: .8rem;
+
+}`;
 
 // Add the ReactiveLink component that will use the useMatch hook to determine if the route is active and style accordingly, fixing our console error when loading Signup.jsx with the current rendition of the Header component.
 function ReactiveLink({ to, children }) {

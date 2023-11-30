@@ -25,7 +25,7 @@ const StyledCard = styled(Card)`
 const StyledImage = styled.img`
   // sizing
   width: 250px;
-  height: 350px;
+  height: 320px;
   
 
   // coloring
@@ -45,11 +45,11 @@ const StyledImage = styled.img`
 const CardText = styled.p`
   //centers text
   text-align: center;
-  font-size: 22px;
+  font-size: 16px;
 
   // Mobile styling
   @media (max-width: 800px) {
-    font-size: 18px;
+    font-size: 12px;
 `;
 
 const ButtonContainer = styled.div`
@@ -64,7 +64,7 @@ const HigherButton = styled.button`
   background-color: #045ded;
   color: #f5f5f5;
   text-align: center;
-  font-size: .65;
+  font-size: .6rem;
   margin: 10px 10px;
   padding: 28px 12px;
   cursor: pointer;
@@ -99,7 +99,7 @@ font-family: "Press Start 2P";
   background-color: #045ded;
   color: #f5f5f5;
   text-align: center;
-  font-size: 1rempx;
+  font-size: .6rem;
   margin: 10px 10px;
   padding: 28px 12px;
   cursor: pointer;
