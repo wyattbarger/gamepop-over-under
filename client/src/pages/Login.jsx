@@ -24,6 +24,12 @@ const LoginCard = styled.div`
   max-width: 1000px;
   margin: 10px;
   padding: 20px;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
+  }
 `;
 
 const CardTitle = styled.h1`
@@ -33,6 +39,10 @@ const CardTitle = styled.h1`
   
   text-shadow: 2px 5px 3px rgba(112, 255, 225, 1),
                2px 5px 3px rgba(255, 255, 255, 1);
+
+  @media (max-width: 800px) {
+    font-size: 4rem;
+  }
 `;
 
 const LoginForm = styled.form`
@@ -41,6 +51,10 @@ const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 800px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const UsernameLabel = styled.label`
@@ -48,6 +62,11 @@ const UsernameLabel = styled.label`
   font-size: 20px;
   white-space: nowrap;
   color: #70ffdf;
+
+  @media (max-width: 800px) {
+    font-size: 18px;
+    padding: 8px;
+  }
 `;
 
 const UsernameInput = styled.input`
@@ -62,6 +81,13 @@ const UsernameInput = styled.input`
   padding: 5px;
   transition: background-color 0.3s ease-in-out;
 
+  @media (max-width: 800px) {
+    height: 40px;
+    font-size: 20px;
+    padding: 4px;
+  }
+
+
   &:focus {
     background-color: #2d2d2d;
     border-color: #70ffdf;
@@ -74,6 +100,11 @@ const PasswordLabel = styled.label`
   font-size: 20px;
   white-space: nowrap;
   color: #70ffdf;
+
+  @media (max-width: 800px) {
+    font-size: 18px;
+    padding: 8px;
+  }
 `;
 
 const PasswordInput = styled.input`
@@ -87,6 +118,12 @@ const PasswordInput = styled.input`
   box-sizing: border-box;
   padding: 5px;
   transition: background-color 0.3s ease-in-out;
+
+  @media (max-width: 800px) {
+    height: 40px;
+    font-size: 20px;
+    padding: 4px;
+  }
 
   &:focus {
     background-color: #2d2d2d;
@@ -147,7 +184,7 @@ function Login() {
     <Container>
       <Header />
       <LoginCard>
-        <CardTitle>Log In to Game Pop</CardTitle>
+        <CardTitle>Log In!</CardTitle>
         <LoginForm onSubmit={loginFormSubmit}>
           <UsernameLabel htmlFor="username">Enter your Username</UsernameLabel>
           <UsernameInput

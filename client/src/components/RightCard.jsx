@@ -66,7 +66,7 @@ const HigherButton = styled.button`
   text-align: center;
   font-size: .65;
   margin: 10px 10px;
-  padding: 36px 14px;
+  padding: 28px 12px;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #1d269b;
@@ -74,12 +74,16 @@ const HigherButton = styled.button`
 
   position: relative;
   left: 15%;
-  top: -5%;
+  
 
 :active {
   background-color: #045ded;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   transform: scale(0.97);
+}
+
+:hover {
+  box-shadow: 0 0 3px #0d0d0d;
 }
 
 @media (max-width: 800px) {
@@ -97,7 +101,7 @@ font-family: "Press Start 2P";
   text-align: center;
   font-size: 1rempx;
   margin: 10px 10px;
-  padding: 36px 14px;
+  padding: 28px 12px;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #1d269b;
@@ -111,6 +115,10 @@ font-family: "Press Start 2P";
   background-color: #045ded;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   transform: scale(0.97);
+}
+
+:hover {
+  box-shadow: 0 0 3px #0d0d0d;
 }
 
 @media (max-width: 800px) {

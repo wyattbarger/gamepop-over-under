@@ -45,7 +45,7 @@ const StyledImage = styled.img`
 const CardText = styled.p`
   //centers text
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
 
   // Mobile styling
   @media (max-width: 800px) {

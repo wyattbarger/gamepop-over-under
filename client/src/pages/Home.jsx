@@ -20,6 +20,23 @@ const Title = styled.h1`
   
   text-shadow: 2px 5px 3px rgba(112, 255, 225, 1),
                2px 5px 3px rgba(255, 255, 255, 1);
+
+  // Mobile styling
+   @media (max-width: 800px) {
+   font-size: 7rem;
+             
+
+`;
+
+const Subtitle = styled.p`
+  color: #70ffdf;
+  font-size: 1.6rem;
+  
+  text-shadow: 1px 2px 2px rgba(255, 77, 240, 1);
+  
+  // Mobile styling
+   @media (max-width: 800px) {
+   font-size: 1rem;
 `;
 
 const StartButton = styled.button`
@@ -40,6 +57,10 @@ const StartButton = styled.button`
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
     transform: scale(0.97);
 }
+
+:hover {
+  box-shadow: 0 0 10px #70ffdf;
+}
 `;
 
 
@@ -54,7 +75,8 @@ const Home = () => {
     <Container>
       <Header />
       <InsideContainer>
-        <Title>Game Pop</Title>
+        <Title>Game Pop!</Title>
+        <Subtitle>Guess if the game on the right is more or less popular!</Subtitle>
         <Link to="/play">
           <StartButton onClick={StartGame}>Start</StartButton>{" "}
         </Link>
