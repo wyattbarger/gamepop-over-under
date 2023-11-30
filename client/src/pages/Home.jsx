@@ -3,9 +3,8 @@ import styled from "@emotion/styled";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-
 const Container = styled.div`
-opacity: 0;
+  opacity: 0;
   animation: fadeInAnimation ease 1.2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -23,8 +22,6 @@ opacity: 0;
 const InsideContainer = styled.div`
   text-align: center;
   justify-content: center;
-  
-  
 `;
 
 const Title = styled.h1`
@@ -53,7 +50,7 @@ const Subtitle = styled.p`
 `;
 
 const StartButton = styled.button`
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
   background-color: #ff4df0;
   color: #f5f5f5;
   text-align: center;
@@ -69,13 +66,12 @@ const StartButton = styled.button`
     background-color: #ff4df0;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
     transform: scale(0.97);
-}
+  }
 
-:hover {
-  box-shadow: 0 0 10px #70ffdf;
-}
+  :hover {
+    box-shadow: 0 0 10px #70ffdf;
+  }
 `;
-
 
 const Home = () => {
   console.log("howdy pardner");
@@ -89,7 +85,9 @@ const Home = () => {
       <Header />
       <InsideContainer>
         <Title>Game Pop!</Title>
-        <Subtitle>Guess if the game on the right is more, or less, popular!</Subtitle>
+        <Subtitle>
+          Guess if the game on the right is more, or less, popular!
+        </Subtitle>
         <Link to="/play">
           <StartButton onClick={StartGame}>Start</StartButton>{" "}
         </Link>

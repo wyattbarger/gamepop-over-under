@@ -2,8 +2,8 @@ import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { GET_LEADERS}  from '../utils/queries';
 import styled from "@emotion/styled";
-
-
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const LeaderboardContainer = styled.div`
   text-align: center;
@@ -39,12 +39,14 @@ const LeaderboardItem = styled.p`
 
   return (
     <LeaderboardContainer>
+      <Header />
       <LeaderboardTitle>Leaderboard</LeaderboardTitle>
       {data.users.map((user, index) => (
         <LeaderboardItem key={index}>
           {index + 1}. {user.username}: {user.highscore}
         </LeaderboardItem>
       ))}
+      <Footer />
     </LeaderboardContainer>
   );
 }

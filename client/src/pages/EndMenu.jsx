@@ -137,7 +137,7 @@ function EndMenu() {
   const navigate = useNavigate();
   const buttonLinkFunction = (route) => {
     setAwaitFadeOut(false);
-    setTimeout(() => navigate(route), 2400);
+    setTimeout(() => navigate(route), 1200);
   };
   return (
     <Container>

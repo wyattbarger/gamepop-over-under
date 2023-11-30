@@ -27,22 +27,21 @@ const StyledBox = styled(Box)`
 const LoadingDiv = styled.div`
   font-family: "Press Start 2P";
   color: #70ffdf;
-  font-size: 1.6rem;`
+  font-size: 1.6rem;
+`;
 const ScoreTracker = styled.p`
-position: absolute; 
-top: 0;
-left: 0%;
-font-size: 2.5rem;
-color: #ff4df0;
-margin-top: 3%;
-margin-left: 2%;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  font-size: 2.5rem;
+  color: #ff4df0;
+  margin-top: 3%;
+  margin-left: 2%;
 
-
-
-@media (max-width: 800px) {
-  font-size: 1rem;
-  margin-top: 10%;
-}
+  @media (max-width: 800px) {
+    font-size: 1rem;
+    margin-top: 10%;
+  }
 `;
 
 function PlayGame() {
@@ -133,36 +132,36 @@ function PlayGame() {
     <GameContainer>
       <ScoreTracker>Score: {score}</ScoreTracker>
       {/* <ScoreContext.Provider value={score}> */}
-        <Header />
-        {loading ? (
-          <LoadingDiv>Loading...</LoadingDiv>
-        ) : (
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <StyledBox display="flex" justifyContent="center">
-                <LeftCard
-                  game={game}
-                  getNextGames={getNextGames}
-                  score={score}
-                  setScore={setScore}
-                />
-              </StyledBox>
-            </Grid>
-            <Grid item xs={6}>
-              <StyledBox display="flex" justifyContent="center">
-                <RightCard
-                  game={game}
-                  getNextGames={getNextGames}
-                  score={score}
-                  setScore={setScore}
-                  handleEndGame={handleEndGame}
-                  hideLeftRating={hideLeftRating}
-                  setHideLeftRating={setHideLeftRating}
-                />
-              </StyledBox>
-            </Grid>
+      <Header />
+      {loading ? (
+        <LoadingDiv>Loading...</LoadingDiv>
+      ) : (
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <StyledBox display="flex" justifyContent="center">
+              <LeftCard
+                game={game}
+                getNextGames={getNextGames}
+                score={score}
+                setScore={setScore}
+              />
+            </StyledBox>
           </Grid>
-        )}
+          <Grid item xs={6}>
+            <StyledBox display="flex" justifyContent="center">
+              <RightCard
+                game={game}
+                getNextGames={getNextGames}
+                score={score}
+                setScore={setScore}
+                handleEndGame={handleEndGame}
+                hideLeftRating={hideLeftRating}
+                setHideLeftRating={setHideLeftRating}
+              />
+            </StyledBox>
+          </Grid>
+        </Grid>
+      )}
       {/* </ScoreContext.Provider> */}
     </GameContainer>
   );
