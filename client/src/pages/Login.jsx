@@ -14,6 +14,19 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  opacity: 0;
+  animation: fadeInAnimation ease 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 const LoginCard = styled.div`
@@ -149,6 +162,10 @@ const LoginButton = styled.button`
   background-color: #ff4df0;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   transform: scale(0.97);
+}
+
+:hover {
+  box-shadow: 0 0 10px #70ffdf;
 }
 `;
 
