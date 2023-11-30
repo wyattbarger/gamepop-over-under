@@ -8,6 +8,7 @@ import Login from './pages/Login.jsx'
 import PlayGame from './pages/PlayGame.jsx'
 import EndMenu from './pages/EndMenu.jsx'
 import Signup from './pages/Signup.jsx'
+import Leaderboard from './pages/Leaderboard.jsx'
 // import SignUp from './pages/Signup.jsx'
 
 import './index.css'
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       }, {
         path: '/signup',
         element: <Signup />
+      },
+      {
+        path: '/leaderboard',
+        element: <Leaderboard />
       }
     ],
   },
