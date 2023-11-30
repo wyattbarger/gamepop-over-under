@@ -24,7 +24,14 @@ const StyledBox = styled(Box)`
   margin: 0px 50px;
 `;
 
+const LoadingDiv = styled.div`
+font-family: "Press Start 2P";
+color: #70ffdf;
+font-size: 1.6rem;
+`;
+
 function PlayGame() {
+  const [hideLeftId, setHideLeftId] = useState(null);
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
 
@@ -106,7 +113,7 @@ function PlayGame() {
       <ScoreContext.Provider value={score}>
         <Header />
         {loading ? (
-          <div>Loading...</div>
+          <LoadingDiv>Loading...</LoadingDiv>
         ) : (
           <Grid container spacing={2}>
             <Grid item xs={6}>
