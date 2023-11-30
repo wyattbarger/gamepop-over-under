@@ -31,6 +31,8 @@ function PlayGame() {
   const [updateHighScore, {data: mutationData}] = useMutation(UPDATE_HIGHSCORE_MUTATION);
   const handleEndGame = () => {
     const token = localStorage.getItem('id_token');
+    if (!token) {
+      return}
     const decoded = decode(token);
     const username = decoded.data.username
     console.log('username:', username);
