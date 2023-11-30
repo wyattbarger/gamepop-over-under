@@ -9,6 +9,10 @@ const resolvers = {
       return User.findOne({ username }).populate("highscore");
     },
 
+    users: async (parent) => {
+      return User.find({}).sort({ highscore: -1 }).limit(10);
+    },
+
     fetchAllGames: async () => {
       try {
         console.log("LOOK AT ME", process.env.CLIENT_ID, process.env.ACCESS_TOKEN);
