@@ -28,12 +28,14 @@ function PlayGame() {
   const { loading, data } = useQuery(FETCH_ALL_GAMES);
   let games = data?.fetchAllGames || [];
 
-  const [updateHighScore] = useMutation(UPDATE_HIGHSCORE_MUTATION);
-const handleEndGame = () => {
-  const token = localStorage.getItem('id_token');
-  const decoded = decode(token);
-  const username = decoded.username
-  updateHighScore({ variables: { username: username, score: score } });
+  const [updateHighScore, {data: mutationData}] = useMutation(UPDATE_HIGHSCORE_MUTATION);
+  const handleEndGame = () => {
+    const token = localStorage.getItem('id_token');
+    const decoded = decode(token);
+    const username = decoded.data.username
+    console.log('username:', username);
+    console.log('score:', score);
+    updateHighScore({ variables: { username: username, score: score } });
 };
 
   const [score, setScore] = useState(0);
@@ -112,7 +114,7 @@ const handleEndGame = () => {
             </Grid>
             <Grid item xs={6}>
               <StyledBox display="flex" justifyContent="center">
-                <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore} />
+                <RightCard game={game} getNextGames={getNextGames} score={score} setScore={setScore} handleEndGame={handleEndGame}/>
               </StyledBox>
             </Grid>
           </Grid>

@@ -131,6 +131,7 @@ function RightCard({ game, getNextGames, score, setScore, handleEndGame }) {
       getNextGames();
     } else {
       console.log("incorrect");
+      handleEndGame();
       navigate("/gameover");
     }
   };
@@ -143,6 +144,7 @@ function RightCard({ game, getNextGames, score, setScore, handleEndGame }) {
       getNextGames();
     } else {
       console.log("incorrect");
+      handleEndGame();
       navigate("/gameover");
     }
   };
