@@ -9,8 +9,8 @@ const resolvers = {
       return User.findOne({ username }).populate("highscore");
     },
 
-    leaderboard: async () => {
-      return User.find().sort({ highscore: -1 }).limit(10);
+    users: async (parent) => {
+      return User.find({}).sort({ highscore: -1 }).limit(10);
     },
 
     fetchAllGames: async () => {
