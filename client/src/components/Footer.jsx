@@ -76,7 +76,7 @@ export default function Footer() {
     <FooterContainer>
       <Copyright>
         © 2023 Wyatt Barger, Andrew Mell, and Alex Blaylock. This project is
-        licensed under the MIT License. Designed and developed in Novemeber
+        licensed under the MIT License. Developed in Novemeber
         2023.
       </Copyright>
       <IconContainer> 
