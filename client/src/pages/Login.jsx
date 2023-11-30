@@ -14,6 +14,19 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  opacity: 0;
+  animation: fadeInAnimation ease 1.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 
 const LoginCard = styled.div`
