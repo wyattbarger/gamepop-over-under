@@ -12,6 +12,7 @@ const InsideContainer = styled.div`
   text-align: center;
   justify-content: center;
   
+  
 `;
 
 const Title = styled.h1`
@@ -76,7 +77,7 @@ const Home = () => {
       <Header />
       <InsideContainer>
         <Title>Game Pop!</Title>
-        <Subtitle>Guess if the game on the right is more or less popular!</Subtitle>
+        <Subtitle>Guess if the game on the right is more, or less, popular!</Subtitle>
         <Link to="/play">
           <StartButton onClick={StartGame}>Start</StartButton>{" "}
         </Link>

@@ -1,6 +1,9 @@
-import react from 'react';
+import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { GET_LEADERS}  from '../utils/queries';
+import styled from "@emotion/styled";
+
+
 
 function Leaderboard() {
   const { loading, error, data } = useQuery(GET_LEADERS);

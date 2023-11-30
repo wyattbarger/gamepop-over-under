@@ -20,7 +20,7 @@ const GameoverCard = styled.div`
   padding: 20px;
   animation: ${(props) =>
       props.awaitFadeOut ? "fadeInAnimation" : "fadeOutAnimation"}
-    ease 1.6s;
+    ease 1.2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
@@ -49,12 +49,17 @@ const CardTitle = styled.h1`
   padding: 0 20px;
   text-shadow: 2px 5px 3px rgba(112, 255, 225, 1),
                2px 5px 3px rgba(255, 255, 255, 1);
+
+  @media (max-width: 800px) {
+    font-size: 3rem;
+  }
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+
 `;
 
 const HomeButton = styled.button`
@@ -71,6 +76,15 @@ const HomeButton = styled.button`
   width: 175px;
   height: 175px;
   transition: all 0.1s ease-in-out;
+
+  @media (max-width: 800px) {
+    font-size: 16px;
+    padding: 15px 10px;
+    width: 150px;
+    height: 150px;
+    margin: 10px 5px;
+  }
+
 
   :active {
     background-color: #d83ea8;
@@ -93,6 +107,15 @@ font-family: 'Press Start 2P';
   width: 175px;
   height: 175px;
   transition: all 0.1s ease-in-out;
+
+  @media (max-width: 800px) {
+    font-size: 16px;
+    padding: 15px 10px;
+    width: 150px;
+    height: 150px;
+    margin: 10px 5px;
+  }
+
 
   :active {
     background-color: #d83ea8;
