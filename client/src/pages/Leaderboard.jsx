@@ -3,6 +3,8 @@ import { useQuery, gql } from '@apollo/client';
 import { GET_LEADERS}  from '../utils/queries';
 import styled from "@emotion/styled";
 
+
+
 const LeaderboardContainer = styled.div`
   text-align: center;
   justify-content: center;

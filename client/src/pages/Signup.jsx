@@ -33,6 +33,10 @@ const CardTitle = styled.h1`
 
   text-shadow: 2px 5px 3px rgba(112, 255, 225, 1),
                2px 5px 3px rgba(255, 255, 255, 1);
+
+  @media (max-width: 800px) {
+    font-size: 3rem;
+  }
 `;
 
 const SignupForm = styled.form`
@@ -48,6 +52,11 @@ const UsernameLabel = styled.label`
   font-size: 20px;
   white-space: nowrap;
   color: #70ffdf;
+
+  @media (max-width: 800px) {
+    font-size: 16px;
+    padding: 8px;
+  }
 `;
 
 const UsernameInput = styled.input`
@@ -62,6 +71,12 @@ font-family: "Press Start 2P";
   padding: 5px;
   transition: background-color 0.3s ease-in-out;
 
+  @media (max-width: 800px) {
+    height: 40px;
+    font-size: 20px;
+    padding: 4px;
+  }
+
   &:focus {
     background-color: #2d2d2d;
     border-color: #70ffdf;
@@ -74,6 +89,11 @@ const PasswordLabel = styled.label`
   font-size: 20px;
   white-space: nowrap;
   color: #70ffdf;
+
+  @media (max-width: 800px) {
+    font-size: 16px;
+    padding: 8px;
+  }
 `;
 
 const PasswordInput = styled.input`
@@ -87,6 +107,12 @@ const PasswordInput = styled.input`
   box-sizing: border-box;
   padding: 5px;
   transition: background-color 0.3s ease-in-out;
+
+  @media (max-width: 800px) {
+    height: 40px;
+    font-size: 20px;
+    padding: 4px;
+  }
 
   &:focus {
     background-color: #2d2d2d;
@@ -107,6 +133,12 @@ font-family: "Press Start 2P";
   border-radius: 50%;
   border: 2px solid #70ffdf;
   transition: all 0.1s ease-in-out;
+
+  @media (max-width: 800px) {
+    font-size: 14px;
+    padding: 35px 20px;
+    margin: 10px 5px;
+  }
 
   :active {
     background-color: #ff4df0;
@@ -149,7 +181,7 @@ function Signup() {
     <Container>
       <Header />
       <SignupCard>
-        <CardTitle>Join Game Pop</CardTitle>
+        <CardTitle>Sign Up!</CardTitle>
         <SignupForm onSubmit={signupFormSubmit}>
           <UsernameLabel htmlFor="username">Choose a Username</UsernameLabel>
           <UsernameInput

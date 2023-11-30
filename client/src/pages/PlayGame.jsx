@@ -27,7 +27,22 @@ const StyledBox = styled(Box)`
 const LoadingDiv = styled.div`
   font-family: "Press Start 2P";
   color: #70ffdf;
-  font-size: 1.6rem;
+  font-size: 1.6rem;`
+const ScoreTracker = styled.p`
+position: absolute; 
+top: 0;
+left: 0%;
+font-size: 2.5rem;
+color: #ff4df0;
+margin-top: 3%;
+margin-left: 2%;
+
+
+
+@media (max-width: 800px) {
+  font-size: 1rem;
+  margin-top: 10%;
+}
 `;
 
 function PlayGame() {
@@ -116,7 +131,8 @@ function PlayGame() {
 
   return (
     <GameContainer>
-      <ScoreContext.Provider value={score}>
+      <ScoreTracker>Score: {score}</ScoreTracker>
+      {/* <ScoreContext.Provider value={score}> */}
         <Header />
         {loading ? (
           <LoadingDiv>Loading...</LoadingDiv>
@@ -147,7 +163,7 @@ function PlayGame() {
             </Grid>
           </Grid>
         )}
-      </ScoreContext.Provider>
+      {/* </ScoreContext.Provider> */}
     </GameContainer>
   );
 }

@@ -25,7 +25,7 @@ const StyledCard = styled(Card)`
 const StyledImage = styled.img`
   // sizing
   width: 250px;
-  height: 350px;
+  height: 320px;
 
   // coloring
   border: 2px solid #70ffdf;
@@ -43,14 +43,13 @@ const StyledImage = styled.img`
 `;
 
 const CardText = styled.p`
-  //centers text
-  text-align: center;
-  font-size: 18px;
+//centers text
+text-align: center;
+font-size: 16px;
 
-  // Mobile styling
-  @media (max-width: 800px) {
-    font-size: 18px;
-
+// Mobile styling
+@media (max-width: 800px) {
+  font-size: 12px;
 `;
 
 function LeftCard({ game }) {
