@@ -22,3 +22,8 @@ Closed to outside contributions.
 Wyatt Barger - Team Lead / Full-stack Development
 Andrew Mell - Database Architect / Back-end Development
 Alex Blaylock - UX-UI Design / Front-end Development
+
+### DEV-LOG
+
+Wyatt Barger
+1-16-23 : Api credentials updated after token expiration, functionality unchanged.
